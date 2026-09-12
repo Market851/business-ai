@@ -6,41 +6,53 @@
     <title>Business AI</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            background: #f5f7fb;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
             color: #172033;
-            text-align: center;
         }
 
         header {
             background: #172033;
             color: white;
-            padding: 25px;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            opacity: 0.85;
         }
 
         main {
-            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+            padding: 50px 20px;
+            text-align: center;
         }
 
-        h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
         }
 
-        h2 {
-            font-size: 28px;
-        }
-
-        p {
+        .hero p {
             font-size: 18px;
-            max-width: 650px;
-            margin: 20px auto;
             line-height: 1.6;
+            color: #596579;
         }
 
-        button {
+        .boton-principal {
             background: #2563eb;
             color: white;
             border: none;
@@ -51,22 +63,78 @@
             margin-top: 20px;
         }
 
-        button:hover {
+        .boton-principal:hover {
             background: #1d4ed8;
         }
 
         #eines {
             display: none;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
-        .targeta {
+        .generador {
             background: white;
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .generador h2 {
+            margin-top: 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 1px solid #d5dbe5;
+            border-radius: 10px;
+            font-size: 16px;
+            resize: vertical;
+            margin-top: 15px;
+        }
+
+        .boton-generar {
+            width: 100%;
+            background: #172033;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .boton-generar:hover {
+            background: #27344d;
+        }
+
+        #resultado {
+            display: none;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .idea {
+            background: #f4f7fb;
+            border-left: 5px solid #2563eb;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .idea h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #718096;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -75,58 +143,141 @@
 
     <header>
         <h1>Business AI</h1>
+        <p>Intel·ligència artificial per al teu negoci</p>
     </header>
 
     <main>
 
-        <h2>Fes créixer el teu negoci amb Intel·ligència Artificial</h2>
+        <section class="hero">
 
-        <p>
-            Descobreix eines d'IA que et poden ajudar a estalviar temps,
-            aconseguir clients i fer créixer el teu negoci.
-        </p>
+            <h2>Fes créixer el teu negoci amb IA</h2>
 
-        <button onclick="mostrarEines()">Començar ara</button>
+            <p>
+                Descobreix idees de negoci i oportunitats per començar
+                a guanyar diners utilitzant Internet i la intel·ligència artificial.
+            </p>
+
+            <button class="boton-principal" onclick="mostrarEina()">
+                Començar ara
+            </button>
+
+        </section>
+
 
         <section id="eines">
 
-            <h2>Eines d'IA</h2>
+            <div class="generador">
 
-            <div class="targeta">
-                <h3>🤖 Generador d'idees</h3>
-                <p>
-                    Descobreix idees de negoci i maneres d'utilitzar
-                    la intel·ligència artificial.
-                </p>
-            </div>
+                <h2>💡 Generador d'idees de negoci</h2>
 
-            <div class="targeta">
-                <h3>💰 Idees per guanyar diners</h3>
                 <p>
-                    Explora diferents formes de crear ingressos
-                    utilitzant Internet i la IA.
+                    Explica'ns què tens o què t'agrada i et mostrarem
+                    algunes idees per començar.
                 </p>
-            </div>
 
-            <div class="targeta">
-                <h3>📈 Millora el teu negoci</h3>
-                <p>
-                    Aprèn com utilitzar la IA per aconseguir més clients
-                    i estalviar temps.
-                </p>
+                <textarea
+                    id="entrada"
+                    placeholder="Exemple: Tinc 100 €, m'agrada el futbol i vull guanyar diners per Internet..."
+                ></textarea>
+
+                <button class="boton-generar" onclick="generarIdees()">
+                    Generar idees
+                </button>
+
+                <div id="resultado"></div>
+
             </div>
 
         </section>
 
     </main>
 
+
+    <footer>
+        © 2026 Business AI
+    </footer>
+
+
     <script>
-        function mostrarEines() {
+
+        function mostrarEina() {
+
             document.getElementById("eines").style.display = "block";
+
             document.getElementById("eines").scrollIntoView({
                 behavior: "smooth"
             });
+
         }
+
+
+        function generarIdees() {
+
+            const entrada = document.getElementById("entrada").value.trim();
+
+            const resultado = document.getElementById("resultado");
+
+            if (entrada === "") {
+
+                resultado.style.display = "block";
+
+                resultado.innerHTML = `
+                    <div class="idea">
+                        <h3>⚠️ Falta informació</h3>
+                        <p>
+                            Escriu una mica sobre tu, els teus interessos
+                            o els diners que vols invertir.
+                        </p>
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            resultado.style.display = "block";
+
+            resultado.innerHTML = `
+
+                <div class="idea">
+
+                    <h3>💻 1. Crear contingut amb IA</h3>
+
+                    <p>
+                        Pots crear vídeos, publicacions o anuncis
+                        per a petits negocis i cobrar pels teus serveis.
+                    </p>
+
+                </div>
+
+
+                <div class="idea">
+
+                    <h3>🏪 2. Crear una petita botiga online</h3>
+
+                    <p>
+                        Pots trobar un producte interessant i crear
+                        una pàgina web per vendre'l.
+                    </p>
+
+                </div>
+
+
+                <div class="idea">
+
+                    <h3>🤖 3. Serveis d'IA per a negocis</h3>
+
+                    <p>
+                        Pots ajudar restaurants, botigues o autònoms
+                        a crear textos, anuncis i contingut utilitzant IA.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
     </script>
 
 </body>
