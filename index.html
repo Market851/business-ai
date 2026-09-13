@@ -7,137 +7,230 @@
 <title>Business AI</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #172033;
+body{
+    background:#080b12;
+    color:white;
+    min-height:100vh;
 }
 
-header {
-    background: #172033;
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 7%;
+    border-bottom:1px solid #202532;
+    position:sticky;
+    top:0;
+    background:#080b12;
+    z-index:10;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 38px;
+.logo{
+    font-size:24px;
+    font-weight:bold;
 }
 
-header p {
-    margin: 10px 0 0;
-    opacity: 0.8;
+.logo span{
+    color:#4f8cff;
 }
 
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 50px 20px;
+nav button{
+    background:none;
+    border:none;
+    color:#aaa;
+    margin-left:20px;
+    cursor:pointer;
+    font-size:14px;
 }
 
-.hero {
-    text-align: center;
+nav button:hover{
+    color:white;
 }
 
-.hero h2 {
-    font-size: 32px;
+.hero{
+    text-align:center;
+    padding:75px 20px 45px;
 }
 
-.hero p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #596579;
+.badge{
+    display:inline-block;
+    background:#111a2d;
+    color:#6ea0ff;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:20px;
 }
 
-.boton-principal {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
+.hero h1{
+    font-size:clamp(38px,6vw,70px);
+    margin-bottom:20px;
 }
 
-.boton-principal:hover {
-    background: #1d4ed8;
+.hero h1 span{
+    color:#4f8cff;
 }
 
-#chat {
-    display: none;
-    margin-top: 50px;
+.hero p{
+    color:#9ba3b4;
+    max-width:650px;
+    margin:auto;
+    line-height:1.6;
 }
 
-.chat-box {
-    background: white;
-    max-width: 700px;
-    margin: auto;
-    border-radius: 18px;
-    padding: 25px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+.tools{
+    max-width:1100px;
+    margin:30px auto 80px;
+    padding:0 20px;
 }
 
-#messages {
-    min-height: 250px;
-    max-height: 450px;
-    overflow-y: auto;
-    text-align: left;
-    padding: 10px;
+.tool-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
 }
 
-.mensaje {
-    padding: 14px;
-    margin: 12px 0;
-    border-radius: 12px;
-    line-height: 1.5;
+.card{
+    background:#10141e;
+    border:1px solid #222a38;
+    border-radius:18px;
+    padding:25px;
+    cursor:pointer;
+    transition:.2s;
 }
 
-.usuario {
-    background: #e0eaff;
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#4f8cff;
 }
 
-.ia {
-    background: #f1f3f6;
+.icon{
+    font-size:32px;
+    margin-bottom:15px;
 }
 
-.chat-input {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
+.card h3{
+    margin-bottom:10px;
 }
 
-input {
-    flex: 1;
-    padding: 15px;
-    border: 1px solid #d5dbe5;
-    border-radius: 10px;
-    font-size: 16px;
+.card p{
+    color:#8992a3;
+    font-size:14px;
+    line-height:1.5;
 }
 
-button.enviar {
-    background: #172033;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+.workspace{
+    max-width:900px;
+    margin:0 auto 80px;
+    padding:0 20px;
+    display:none;
 }
 
-button.enviar:hover {
-    background: #27344d;
+.workspace.active{
+    display:block;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #718096;
+.workspace h2{
+    margin-bottom:10px;
+}
+
+.workspace-description{
+    color:#8992a3;
+    margin-bottom:20px;
+}
+
+textarea,
+input,
+select{
+    width:100%;
+    background:#10141e;
+    border:1px solid #293244;
+    color:white;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+textarea:focus,
+input:focus,
+select:focus{
+    border-color:#4f8cff;
+}
+
+.primary{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#4f8cff;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.primary:hover{
+    background:#3c78df;
+}
+
+.result{
+    margin-top:20px;
+    background:#0d1119;
+    border:1px solid #252e3e;
+    border-radius:15px;
+    padding:20px;
+    white-space:pre-wrap;
+    line-height:1.6;
+    color:#dce2ed;
+    display:none;
+}
+
+.loading{
+    color:#6ea0ff;
+}
+
+footer{
+    text-align:center;
+    border-top:1px solid #202532;
+    padding:30px;
+    color:#687182;
+    font-size:13px;
+}
+
+.premium{
+    margin-top:20px;
+    padding:25px;
+    border-radius:18px;
+    border:1px solid #493d16;
+    background:#151208;
+}
+
+.premium h3{
+    color:#ffd45c;
+    margin-bottom:8px;
+}
+
+.back{
+    margin-bottom:20px;
+    background:none;
+    border:1px solid #30394a;
+    color:#aaa;
+    padding:9px 15px;
+    border-radius:9px;
+    cursor:pointer;
 }
 </style>
 </head>
@@ -145,160 +238,419 @@ footer {
 <body>
 
 <header>
-    <h1>Business AI 🤖</h1>
-    <p>El teu assistent d'intel·ligència artificial per a negocis</p>
+    <div class="logo">Business<span>AI</span></div>
+
+    <nav>
+        <button onclick="scrollToTools()">Eines</button>
+        <button onclick="showPremium()">Premium</button>
+    </nav>
 </header>
 
-<main>
-
 <section class="hero">
+    <div class="badge">🤖 Intel·ligència artificial per al teu negoci</div>
 
-<h2>Fes créixer les teves idees amb IA</h2>
+    <h1>
+        Construeix el teu negoci<br>
+        amb <span>IA</span>
+    </h1>
 
-<p>
-Pregunta sobre negocis, idees per guanyar diners, màrqueting,
-xarxes socials o qualsevol projecte que vulguis crear.
+    <p>
+        Genera idees, crea contingut, prepara anuncis,
+        calcula beneficis i parla amb Business AI.
+    </p>
+</section>
+
+<section class="tools" id="tools">
+
+    <div class="tool-grid">
+
+        <div class="card" onclick="openTool('assistant')">
+            <div class="icon">🤖</div>
+            <h3>Assistent Business AI</h3>
+            <p>Pregunta el que vulguis sobre negocis, diners, màrqueting o emprenedoria.</p>
+        </div>
+
+        <div class="card" onclick="openTool('ideas')">
+            <div class="icon">💡</div>
+            <h3>Idees de negoci</h3>
+            <p>Genera idees de negoci adaptades als teus diners, habilitats i objectius.</p>
+        </div>
+
+        <div class="card" onclick="openTool('social')">
+            <div class="icon">📱</div>
+            <h3>Posts TikTok / Instagram</h3>
+            <p>Crea idees i textos per publicar a les xarxes socials.</p>
+        </div>
+
+        <div class="card" onclick="openTool('ads')">
+            <div class="icon">📢</div>
+            <h3>Generador d'anuncis</h3>
+            <p>Crea anuncis atractius per vendre productes o serveis.</p>
+        </div>
+
+        <div class="card" onclick="openTool('calculator')">
+            <div class="icon">💰</div>
+            <h3>Preus i beneficis</h3>
+            <p>Calcula preus de venda, marge i benefici aproximat.</p>
+        </div>
+
+    </div>
+
+    <div class="premium">
+        <h3>⭐ Business AI Premium</h3>
+        <p>
+            Més eines, més generacions i funcions avançades.
+            Aquesta zona la prepararem més endavant per monetitzar la web.
+        </p>
+    </div>
+
+</section>
+
+<!-- ASSISTENT -->
+
+<section class="workspace" id="assistant">
+
+<button class="back" onclick="backToTools()">← Tornar a les eines</button>
+
+<h2>🤖 Assistent Business AI</h2>
+
+<p class="workspace-description">
+Parla amb la IA i pregunta-li qualsevol cosa relacionada amb negocis.
 </p>
 
-<button class="boton-principal" onclick="abrirChat()">
-Començar ara
+<textarea id="assistantInput"
+placeholder="Exemple: Tinc 100 €, m'agrada el futbol i vull començar un negoci online..."></textarea>
+
+<button class="primary" onclick="askAI('assistant')">
+Generar resposta
 </button>
+
+<div class="result" id="assistantResult"></div>
 
 </section>
 
 
-<section id="chat">
+<!-- IDEES -->
 
-<div class="chat-box">
+<section class="workspace" id="ideas">
 
-<h2>🤖 Parla amb Business AI</h2>
+<button class="back" onclick="backToTools()">← Tornar a les eines</button>
 
-<div id="messages">
+<h2>💡 Generador d'idees de negoci</h2>
 
-<div class="mensaje ia">
-👋 Hola! Soc Business AI. Explica'm què vols crear o pregunta'm qualsevol cosa sobre negocis.
-</div>
+<p class="workspace-description">
+Explica'ns la teva situació i la IA et proposarà negocis.
+</p>
 
-</div>
+<textarea id="ideasInput"
+placeholder="Exemple: Tinc 200 €, sé editar vídeos i tinc 2 hores al dia..."></textarea>
 
-<div class="chat-input">
-
-<input
-id="pregunta"
-placeholder="Escriu la teva pregunta..."
-onkeypress="if(event.key === 'Enter') enviarPregunta()"
-/>
-
-<button class="enviar" onclick="enviarPregunta()">
-Enviar
+<button class="primary" onclick="askAI('ideas')">
+Generar idees
 </button>
 
-</div>
-
-</div>
+<div class="result" id="ideasResult"></div>
 
 </section>
 
-</main>
+
+<!-- SOCIAL -->
+
+<section class="workspace" id="social">
+
+<button class="back" onclick="backToTools()">← Tornar a les eines</button>
+
+<h2>📱 Generador TikTok / Instagram</h2>
+
+<p class="workspace-description">
+Crea contingut per fer créixer una marca o vendre un producte.
+</p>
+
+<textarea id="socialInput"
+placeholder="Exemple: Vull promocionar una botiga online de productes de futbol..."></textarea>
+
+<button class="primary" onclick="askAI('social')">
+Crear publicació
+</button>
+
+<div class="result" id="socialResult"></div>
+
+</section>
+
+
+<!-- ANUNCIS -->
+
+<section class="workspace" id="ads">
+
+<button class="back" onclick="backToTools()">← Tornar a les eines</button>
+
+<h2>📢 Generador d'anuncis</h2>
+
+<p class="workspace-description">
+Escriu quin producte o servei vols vendre.
+</p>
+
+<textarea id="adsInput"
+placeholder="Exemple: Vull vendre una motxilla esportiva per 29,99 €..."></textarea>
+
+<button class="primary" onclick="askAI('ads')">
+Crear anunci
+</button>
+
+<div class="result" id="adsResult"></div>
+
+</section>
+
+
+<!-- CALCULADORA -->
+
+<section class="workspace" id="calculator">
+
+<button class="back" onclick="backToTools()">← Tornar a les eines</button>
+
+<h2>💰 Preus i beneficis</h2>
+
+<p class="workspace-description">
+Calcula ràpidament quant podries guanyar amb un producte.
+</p>
+
+<input id="cost" type="number" placeholder="Cost del producte (€)">
+
+<input id="price" type="number" placeholder="Preu de venda (€)">
+
+<input id="quantity" type="number" placeholder="Quantitat de vendes">
+
+<button class="primary" onclick="calculate()">
+Calcular benefici
+</button>
+
+<div class="result" id="calculatorResult"></div>
+
+</section>
+
 
 <footer>
-© 2026 Business AI
+Business AI · Eines intel·ligents per a emprenedors
 </footer>
 
 
 <script>
 
-const WORKER_URL = "https://buusinessai.khalilidrissibachiri.workers.dev/";
+const WORKER_URL =
+"https://buusinessai.khalilidrissibachiri.workers.dev/";
 
-function abrirChat() {
+function scrollToTools(){
 
-    document.getElementById("chat").style.display = "block";
+    document.getElementById("tools")
+    .scrollIntoView({behavior:"smooth"});
 
-    document.getElementById("chat").scrollIntoView({
-        behavior: "smooth"
+}
+
+function openTool(id){
+
+    document.getElementById("tools").style.display="none";
+
+    document.querySelectorAll(".workspace")
+    .forEach(x => x.classList.remove("active"));
+
+    document.getElementById(id)
+    .classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
 
 }
 
+function backToTools(){
 
-async function enviarPregunta() {
+    document.querySelectorAll(".workspace")
+    .forEach(x => x.classList.remove("active"));
 
-    const input = document.getElementById("pregunta");
-    const pregunta = input.value.trim();
+    document.getElementById("tools").style.display="block";
 
-    if (!pregunta) return;
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
-    const messages = document.getElementById("messages");
+}
 
-    messages.innerHTML += `
-        <div class="mensaje usuario">
-        <strong>Tu:</strong><br>
-        ${pregunta}
-        </div>
-    `;
+function showPremium(){
 
-    input.value = "";
+    alert(
+        "⭐ Business AI Premium\n\n" +
+        "Aquesta funció encara està en desenvolupament."
+    );
 
-    messages.innerHTML += `
-        <div class="mensaje ia" id="cargando">
-        🤖 Business AI està pensant...
-        </div>
-    `;
+}
 
-    messages.scrollTop = messages.scrollHeight;
+async function askAI(type){
 
-    try {
+    let inputId = type + "Input";
+    let resultId = type + "Result";
 
-        const respuesta = await fetch(WORKER_URL, {
+    const input =
+        document.getElementById(inputId);
 
-            method: "POST",
+    const result =
+        document.getElementById(resultId);
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+    const text = input.value.trim();
 
-            body: JSON.stringify({
-                message: pregunta
-            })
+    if(!text){
 
-        });
+        result.style.display="block";
+        result.textContent =
+            "Escriu alguna cosa primer.";
 
-        const data = await respuesta.json();
-
-        document.getElementById("cargando").remove();
-
-        if (data.response) {
-
-            messages.innerHTML += `
-                <div class="mensaje ia">
-                <strong>🤖 Business AI:</strong><br>
-                ${data.response}
-                </div>
-            `;
-
-        } else {
-
-            messages.innerHTML += `
-                <div class="mensaje ia">
-                ❌ Hi ha hagut un problema: ${data.error || "Error desconegut"}
-                </div>
-            `;
-
-        }
-
-    } catch (error) {
-
-        document.getElementById("cargando").remove();
-
-        messages.innerHTML += `
-            <div class="mensaje ia">
-            ❌ No s'ha pogut connectar amb Business AI.
-            </div>
-        `;
+        return;
 
     }
 
-    messages.scrollTop = messages.scrollHeight;
+    result.style.display="block";
+    result.innerHTML =
+        '<div class="loading">🤖 Business AI està pensant...</div>';
+
+    let instruction = "";
+
+    if(type === "assistant"){
+
+        instruction =
+        "Respon com un assistent expert en negocis. " +
+        "Dona una resposta útil, clara i pràctica. " +
+        "Pregunta de l'usuari: ";
+
+    }
+
+    if(type === "ideas"){
+
+        instruction =
+        "Genera 3 idees de negoci realistes basades en la situació de l'usuari. " +
+        "Per cada idea explica com començar, com aconseguir els primers clients " +
+        "i com podria guanyar diners. Sigues pràctic. Situació: ";
+
+    }
+
+    if(type === "social"){
+
+        instruction =
+        "Crea una publicació atractiva per TikTok o Instagram basada en aquesta informació. " +
+        "Inclou un hook inicial, text del vídeo, CTA i hashtags. Informació: ";
+
+    }
+
+    if(type === "ads"){
+
+        instruction =
+        "Crea un anunci professional i persuasiu per vendre aquest producte o servei. " +
+        "Inclou titular, text principal i una crida a l'acció. Producte: ";
+
+    }
+
+    try{
+
+        const response =
+            await fetch(WORKER_URL,{
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+                    prompt: instruction + text
+                })
+
+            });
+
+        const data =
+            await response.json();
+
+        if(data.response){
+
+            result.textContent =
+                data.response;
+
+        }else if(data.result){
+
+            result.textContent =
+                data.result;
+
+        }else{
+
+            result.textContent =
+                JSON.stringify(data,null,2);
+
+        }
+
+    }catch(error){
+
+        result.textContent =
+            "❌ No s'ha pogut connectar amb Business AI. " +
+            "Comprova que el Worker estigui actiu.";
+
+        console.error(error);
+
+    }
+
+}
+
+
+function calculate(){
+
+    const cost =
+        parseFloat(
+            document.getElementById("cost").value
+        ) || 0;
+
+    const price =
+        parseFloat(
+            document.getElementById("price").value
+        ) || 0;
+
+    const quantity =
+        parseInt(
+            document.getElementById("quantity").value
+        ) || 0;
+
+    const profitPerUnit =
+        price - cost;
+
+    const totalProfit =
+        profitPerUnit * quantity;
+
+    const revenue =
+        price * quantity;
+
+    const result =
+        document.getElementById("calculatorResult");
+
+    result.style.display="block";
+
+    result.innerHTML =
+        "💰 RESULTAT\n\n" +
+
+        "Preu de venda: " +
+        price.toFixed(2) +
+        " €\n\n" +
+
+        "Cost: " +
+        cost.toFixed(2) +
+        " €\n\n" +
+
+        "Benefici per venda: " +
+        profitPerUnit.toFixed(2) +
+        " €\n\n" +
+
+        "Ingressos totals: " +
+        revenue.toFixed(2) +
+        " €\n\n" +
+
+        "🔥 Benefici total: " +
+        totalProfit.toFixed(2) +
+        " €";
 
 }
 
