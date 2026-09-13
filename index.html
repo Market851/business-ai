@@ -1,284 +1,308 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>Business AI</title>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #172033;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        header {
-            background: #172033;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 38px;
-        }
+header {
+    background: #172033;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
 
-        header p {
-            margin: 10px 0 0;
-            opacity: 0.85;
-        }
+header h1 {
+    margin: 0;
+    font-size: 38px;
+}
 
-        main {
-            max-width: 900px;
-            margin: auto;
-            padding: 50px 20px;
-            text-align: center;
-        }
+header p {
+    margin: 10px 0 0;
+    opacity: 0.8;
+}
 
-        .hero h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+}
 
-        .hero p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #596579;
-        }
+.hero {
+    text-align: center;
+}
 
-        .boton-principal {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
+.hero h2 {
+    font-size: 32px;
+}
 
-        .boton-principal:hover {
-            background: #1d4ed8;
-        }
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #596579;
+}
 
-        #eines {
-            display: none;
-            margin-top: 60px;
-        }
+.boton-principal {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
 
-        .generador {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            max-width: 650px;
-            margin: auto;
-        }
+.boton-principal:hover {
+    background: #1d4ed8;
+}
 
-        .generador h2 {
-            margin-top: 0;
-        }
+#chat {
+    display: none;
+    margin-top: 50px;
+}
 
-        textarea {
-            width: 100%;
-            min-height: 120px;
-            padding: 15px;
-            border: 1px solid #d5dbe5;
-            border-radius: 10px;
-            font-size: 16px;
-            resize: vertical;
-            margin-top: 15px;
-        }
+.chat-box {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
 
-        .boton-generar {
-            width: 100%;
-            background: #172033;
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-size: 17px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
+#messages {
+    min-height: 250px;
+    max-height: 450px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 10px;
+}
 
-        .boton-generar:hover {
-            background: #27344d;
-        }
+.mensaje {
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 12px;
+    line-height: 1.5;
+}
 
-        #resultado {
-            display: none;
-            margin-top: 25px;
-            text-align: left;
-        }
+.usuario {
+    background: #e0eaff;
+}
 
-        .idea {
-            background: #f4f7fb;
-            border-left: 5px solid #2563eb;
-            padding: 18px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
+.ia {
+    background: #f1f3f6;
+}
 
-        .idea h3 {
-            margin-top: 0;
-        }
+.chat-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #718096;
-            font-size: 14px;
-        }
-    </style>
+input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #d5dbe5;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+button.enviar {
+    background: #172033;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button.enviar:hover {
+    background: #27344d;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #718096;
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Business AI</h1>
-        <p>Intel·ligència artificial per al teu negoci</p>
-    </header>
+<header>
+    <h1>Business AI 🤖</h1>
+    <p>El teu assistent d'intel·ligència artificial per a negocis</p>
+</header>
 
-    <main>
+<main>
 
-        <section class="hero">
+<section class="hero">
 
-            <h2>Fes créixer el teu negoci amb IA</h2>
+<h2>Fes créixer les teves idees amb IA</h2>
 
-            <p>
-                Descobreix idees de negoci i oportunitats per començar
-                a guanyar diners utilitzant Internet i la intel·ligència artificial.
-            </p>
+<p>
+Pregunta sobre negocis, idees per guanyar diners, màrqueting,
+xarxes socials o qualsevol projecte que vulguis crear.
+</p>
 
-            <button class="boton-principal" onclick="mostrarEina()">
-                Començar ara
-            </button>
+<button class="boton-principal" onclick="abrirChat()">
+Començar ara
+</button>
 
-        </section>
-
-
-        <section id="eines">
-
-            <div class="generador">
-
-                <h2>💡 Generador d'idees de negoci</h2>
-
-                <p>
-                    Explica'ns què tens o què t'agrada i et mostrarem
-                    algunes idees per començar.
-                </p>
-
-                <textarea
-                    id="entrada"
-                    placeholder="Exemple: Tinc 100 €, m'agrada el futbol i vull guanyar diners per Internet..."
-                ></textarea>
-
-                <button class="boton-generar" onclick="generarIdees()">
-                    Generar idees
-                </button>
-
-                <div id="resultado"></div>
-
-            </div>
-
-        </section>
-
-    </main>
+</section>
 
 
-    <footer>
-        © 2026 Business AI
-    </footer>
+<section id="chat">
+
+<div class="chat-box">
+
+<h2>🤖 Parla amb Business AI</h2>
+
+<div id="messages">
+
+<div class="mensaje ia">
+👋 Hola! Soc Business AI. Explica'm què vols crear o pregunta'm qualsevol cosa sobre negocis.
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input
+id="pregunta"
+placeholder="Escriu la teva pregunta..."
+onkeypress="if(event.key === 'Enter') enviarPregunta()"
+/>
+
+<button class="enviar" onclick="enviarPregunta()">
+Enviar
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 Business AI
+</footer>
 
 
-    <script>
+<script>
 
-        function mostrarEina() {
+const WORKER_URL = "https://buusinessai.khalilidrissibachiri.workers.dev/";
 
-            document.getElementById("eines").style.display = "block";
+function abrirChat() {
 
-            document.getElementById("eines").scrollIntoView({
-                behavior: "smooth"
-            });
+    document.getElementById("chat").style.display = "block";
 
-        }
+    document.getElementById("chat").scrollIntoView({
+        behavior: "smooth"
+    });
 
-
-        function generarIdees() {
-
-            const entrada = document.getElementById("entrada").value.trim();
-
-            const resultado = document.getElementById("resultado");
-
-            if (entrada === "") {
-
-                resultado.style.display = "block";
-
-                resultado.innerHTML = `
-                    <div class="idea">
-                        <h3>⚠️ Falta informació</h3>
-                        <p>
-                            Escriu una mica sobre tu, els teus interessos
-                            o els diners que vols invertir.
-                        </p>
-                    </div>
-                `;
-
-                return;
-            }
+}
 
 
-            resultado.style.display = "block";
+async function enviarPregunta() {
 
-            resultado.innerHTML = `
+    const input = document.getElementById("pregunta");
+    const pregunta = input.value.trim();
 
-                <div class="idea">
+    if (!pregunta) return;
 
-                    <h3>💻 1. Crear contingut amb IA</h3>
+    const messages = document.getElementById("messages");
 
-                    <p>
-                        Pots crear vídeos, publicacions o anuncis
-                        per a petits negocis i cobrar pels teus serveis.
-                    </p>
+    messages.innerHTML += `
+        <div class="mensaje usuario">
+        <strong>Tu:</strong><br>
+        ${pregunta}
+        </div>
+    `;
 
+    input.value = "";
+
+    messages.innerHTML += `
+        <div class="mensaje ia" id="cargando">
+        🤖 Business AI està pensant...
+        </div>
+    `;
+
+    messages.scrollTop = messages.scrollHeight;
+
+    try {
+
+        const respuesta = await fetch(WORKER_URL, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: pregunta
+            })
+
+        });
+
+        const data = await respuesta.json();
+
+        document.getElementById("cargando").remove();
+
+        if (data.response) {
+
+            messages.innerHTML += `
+                <div class="mensaje ia">
+                <strong>🤖 Business AI:</strong><br>
+                ${data.response}
                 </div>
+            `;
 
+        } else {
 
-                <div class="idea">
-
-                    <h3>🏪 2. Crear una petita botiga online</h3>
-
-                    <p>
-                        Pots trobar un producte interessant i crear
-                        una pàgina web per vendre'l.
-                    </p>
-
+            messages.innerHTML += `
+                <div class="mensaje ia">
+                ❌ Hi ha hagut un problema: ${data.error || "Error desconegut"}
                 </div>
-
-
-                <div class="idea">
-
-                    <h3>🤖 3. Serveis d'IA per a negocis</h3>
-
-                    <p>
-                        Pots ajudar restaurants, botigues o autònoms
-                        a crear textos, anuncis i contingut utilitzant IA.
-                    </p>
-
-                </div>
-
             `;
 
         }
 
-    </script>
+    } catch (error) {
+
+        document.getElementById("cargando").remove();
+
+        messages.innerHTML += `
+            <div class="mensaje ia">
+            ❌ No s'ha pogut connectar amb Business AI.
+            </div>
+        `;
+
+    }
+
+    messages.scrollTop = messages.scrollHeight;
+
+}
+
+</script>
 
 </body>
 </html>
