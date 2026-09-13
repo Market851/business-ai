@@ -20,15 +20,15 @@ body{
     color:#111827;
 }
 
+/* HEADER */
+
 header{
     background:#111827;
     color:white;
-    padding:20px;
+    padding:20px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
 }
 
 .logo{
@@ -37,15 +37,17 @@ header{
 }
 
 .language{
-    padding:10px 14px;
+    padding:9px 12px;
     border-radius:8px;
     border:none;
     cursor:pointer;
 }
 
+/* HERO */
+
 .hero{
     text-align:center;
-    padding:70px 20px 45px;
+    padding:75px 20px;
     background:linear-gradient(135deg,#111827,#2563eb);
     color:white;
 }
@@ -62,85 +64,52 @@ header{
     line-height:1.6;
 }
 
+/* CONTENEDOR */
+
 .container{
     max-width:1100px;
-    margin:40px auto;
+    margin:45px auto;
     padding:0 20px;
 }
 
+/* TOOLS */
+
 .tools{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:22px;
 }
+
+/* CARD */
 
 .card{
     background:white;
     border-radius:18px;
-    padding:25px;
+    padding:28px;
     box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.13);
 }
 
 .card h2{
-    margin-bottom:10px;
+    margin-bottom:12px;
     font-size:22px;
 }
 
 .card p{
     color:#6b7280;
     line-height:1.5;
-    margin-bottom:18px;
 }
 
-textarea{
-    width:100%;
-    min-height:120px;
-    padding:14px;
-    border:1px solid #d1d5db;
-    border-radius:10px;
-    resize:vertical;
-    font-size:15px;
-    outline:none;
-}
-
-textarea:focus{
-    border-color:#2563eb;
-}
-
-button{
-    width:100%;
-    margin-top:12px;
-    padding:13px;
-    border:none;
-    border-radius:10px;
-    background:#2563eb;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#1d4ed8;
-}
-
-.result{
-    display:none;
-    margin-top:18px;
-    padding:16px;
-    background:#f3f4f6;
-    border-radius:10px;
-    white-space:pre-wrap;
-    line-height:1.6;
-}
-
-.loading{
-    text-align:center;
-    font-weight:bold;
-}
+/* PREMIUM */
 
 .premium{
-    margin-top:30px;
+    margin-top:35px;
     background:linear-gradient(135deg,#111827,#374151);
     color:white;
     border-radius:18px;
@@ -158,17 +127,102 @@ button:hover{
     margin-bottom:20px;
 }
 
-.premium button{
-    max-width:300px;
-    background:white;
-    color:#111827;
+/* PANTALLA EINA */
+
+.tool-page{
+    display:none;
+    min-height:calc(100vh - 80px);
+    padding:40px 20px;
 }
+
+.tool-box{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.back-button{
+    width:auto;
+    background:#e5e7eb;
+    color:#111827;
+    margin-bottom:25px;
+    padding:10px 18px;
+}
+
+.back-button:hover{
+    background:#d1d5db;
+}
+
+.tool-box h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.tool-box > p{
+    color:#6b7280;
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+textarea{
+    width:100%;
+    min-height:180px;
+    padding:15px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    resize:vertical;
+    font-size:16px;
+    outline:none;
+}
+
+textarea:focus{
+    border-color:#2563eb;
+}
+
+.main-button{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.main-button:hover{
+    background:#1d4ed8;
+}
+
+.result{
+    display:none;
+    margin-top:25px;
+    padding:20px;
+    background:#f3f4f6;
+    border-radius:12px;
+    white-space:pre-wrap;
+    line-height:1.7;
+}
+
+.loading{
+    text-align:center;
+    font-weight:bold;
+}
+
+/* FOOTER */
 
 footer{
     text-align:center;
     padding:40px 20px;
     color:#6b7280;
 }
+
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -180,8 +234,16 @@ footer{
         font-size:16px;
     }
 
-    .tools{
-        grid-template-columns:1fr;
+    header{
+        padding:18px;
+    }
+
+    .tool-box{
+        padding:25px 20px;
+    }
+
+    .tool-box h1{
+        font-size:27px;
     }
 
 }
@@ -191,6 +253,9 @@ footer{
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
 
 <div class="logo">
@@ -198,14 +263,22 @@ footer{
 </div>
 
 <select id="language" class="language" onchange="changeLanguage()">
+
 <option value="es">🇪🇸 Español</option>
 <option value="en">🇬🇧 English</option>
 <option value="fr">🇫🇷 Français</option>
 <option value="de">🇩🇪 Deutsch</option>
+
 </select>
 
 </header>
 
+
+<!-- =========================
+     PÁGINA PRINCIPAL
+========================= -->
+
+<div id="homePage">
 
 <section class="hero">
 
@@ -227,7 +300,7 @@ Genera ideas, crea contenido, prepara anuncios, calcula beneficios y habla con B
 
 <!-- ASISTENTE -->
 
-<div class="card">
+<div class="card" onclick="openTool('assistant')">
 
 <h2 id="assistantTitle">
 🤖 Asistente Business AI
@@ -237,23 +310,12 @@ Genera ideas, crea contenido, prepara anuncios, calcula beneficios y habla con B
 Pregunta lo que quieras sobre negocios, dinero, marketing o emprendimiento.
 </p>
 
-<textarea
-id="assistantInput"
-placeholder="Escribe tu pregunta..."
-></textarea>
-
-<button onclick="askAI('assistant')" id="assistantButton">
-Preguntar a la IA
-</button>
-
-<div id="assistantResult" class="result"></div>
-
 </div>
 
 
 <!-- IDEAS -->
 
-<div class="card">
+<div class="card" onclick="openTool('ideas')">
 
 <h2 id="ideasTitle">
 💡 Ideas de negocio
@@ -263,23 +325,12 @@ Preguntar a la IA
 Genera ideas de negocio adaptadas a tu dinero, habilidades y objetivos.
 </p>
 
-<textarea
-id="ideasInput"
-placeholder="Ejemplo: Tengo 50 € y quiero ganar dinero por Internet..."
-></textarea>
-
-<button onclick="askAI('ideas')" id="ideasButton">
-Generar ideas
-</button>
-
-<div id="ideasResult" class="result"></div>
-
 </div>
 
 
 <!-- SOCIAL -->
 
-<div class="card">
+<div class="card" onclick="openTool('social')">
 
 <h2 id="socialTitle">
 📱 Posts TikTok / Instagram
@@ -289,23 +340,12 @@ Generar ideas
 Crea ideas y textos para publicar en las redes sociales.
 </p>
 
-<textarea
-id="socialInput"
-placeholder="Explica qué quieres publicar..."
-></textarea>
-
-<button onclick="askAI('social')" id="socialButton">
-Crear publicación
-</button>
-
-<div id="socialResult" class="result"></div>
-
 </div>
 
 
 <!-- ADS -->
 
-<div class="card">
+<div class="card" onclick="openTool('ads')">
 
 <h2 id="adsTitle">
 📢 Generador de anuncios
@@ -315,23 +355,12 @@ Crear publicación
 Crea atractivos anuncios para vender productos o servicios.
 </p>
 
-<textarea
-id="adsInput"
-placeholder="Explica qué quieres vender..."
-></textarea>
-
-<button onclick="askAI('ads')" id="adsButton">
-Crear anuncio
-</button>
-
-<div id="adsResult" class="result"></div>
-
 </div>
 
 
-<!-- PRICES -->
+<!-- PRECIOS -->
 
-<div class="card">
+<div class="card" onclick="openTool('prices')">
 
 <h2 id="pricesTitle">
 💰 Precios y beneficios
@@ -340,17 +369,6 @@ Crear anuncio
 <p id="pricesDescription">
 Calcula precios de venta, margen y beneficio aproximado.
 </p>
-
-<textarea
-id="pricesInput"
-placeholder="Ejemplo: Compro un producto por 10 € y quiero ganar un 40%..."
-></textarea>
-
-<button onclick="calculatePrice()" id="pricesButton">
-Calcular
-</button>
-
-<div id="pricesResult" class="result"></div>
 
 </div>
 
@@ -369,9 +387,212 @@ Calcular
 Más herramientas, más funciones y mejores resultados para hacer crecer tu negocio.
 </p>
 
-<button id="premiumButton">
-Próximamente
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ASISTENTE
+========================= -->
+
+<div id="assistantPage" class="tool-page">
+
+<div class="tool-box">
+
+<button class="back-button" onclick="goHome()" id="assistantBack">
+← Volver
 </button>
+
+<h1 id="assistantPageTitle">
+🤖 Asistente Business AI
+</h1>
+
+<p id="assistantPageDescription">
+Pregunta lo que quieras sobre negocios, dinero, marketing o emprendimiento.
+</p>
+
+<textarea
+id="assistantInput"
+placeholder="Escribe tu pregunta..."
+></textarea>
+
+<button
+class="main-button"
+onclick="askAI('assistant')"
+id="assistantButton">
+
+Preguntar a la IA
+
+</button>
+
+<div id="assistantResult" class="result"></div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     IDEAS
+========================= -->
+
+<div id="ideasPage" class="tool-page">
+
+<div class="tool-box">
+
+<button class="back-button" onclick="goHome()">
+← Volver
+</button>
+
+<h1 id="ideasPageTitle">
+💡 Ideas de negocio
+</h1>
+
+<p id="ideasPageDescription">
+Dile a la IA cuánto dinero tienes, qué sabes hacer y qué objetivo tienes.
+</p>
+
+<textarea
+id="ideasInput"
+placeholder="Ejemplo: Tengo 50 €, sé bastante de fútbol y quiero ganar dinero por Internet..."
+></textarea>
+
+<button
+class="main-button"
+onclick="askAI('ideas')"
+id="ideasButton">
+
+Generar ideas
+
+</button>
+
+<div id="ideasResult" class="result"></div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     SOCIAL
+========================= -->
+
+<div id="socialPage" class="tool-page">
+
+<div class="tool-box">
+
+<button class="back-button" onclick="goHome()">
+← Volver
+</button>
+
+<h1 id="socialPageTitle">
+📱 Posts TikTok / Instagram
+</h1>
+
+<p id="socialPageDescription">
+Dile a la IA qué producto, servicio o tema quieres publicar.
+</p>
+
+<textarea
+id="socialInput"
+placeholder="Ejemplo: Quiero promocionar unas zapatillas deportivas..."
+></textarea>
+
+<button
+class="main-button"
+onclick="askAI('social')"
+id="socialButton">
+
+Crear publicación
+
+</button>
+
+<div id="socialResult" class="result"></div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ANUNCIOS
+========================= -->
+
+<div id="adsPage" class="tool-page">
+
+<div class="tool-box">
+
+<button class="back-button" onclick="goHome()">
+← Volver
+</button>
+
+<h1 id="adsPageTitle">
+📢 Generador de anuncios
+</h1>
+
+<p id="adsPageDescription">
+Dile a la IA qué quieres vender y creará un anuncio profesional.
+</p>
+
+<textarea
+id="adsInput"
+placeholder="Ejemplo: Quiero vender un masajeador de espalda..."
+></textarea>
+
+<button
+class="main-button"
+onclick="askAI('ads')"
+id="adsButton">
+
+Crear anuncio
+
+</button>
+
+<div id="adsResult" class="result"></div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     PRECIOS
+========================= -->
+
+<div id="pricesPage" class="tool-page">
+
+<div class="tool-box">
+
+<button class="back-button" onclick="goHome()">
+← Volver
+</button>
+
+<h1 id="pricesPageTitle">
+💰 Precios y beneficios
+</h1>
+
+<p id="pricesPageDescription">
+Calcula rápidamente cuánto podrías ganar vendiendo un producto.
+</p>
+
+<textarea
+id="pricesInput"
+placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble..."
+></textarea>
+
+<button
+class="main-button"
+onclick="calculatePrice()"
+id="pricesButton">
+
+Calcular
+
+</button>
+
+<div id="pricesResult" class="result"></div>
 
 </div>
 
@@ -391,7 +612,7 @@ Próximamente
 
 
 /* =========================
-   CONFIGURACIÓN
+   WORKER
 ========================= */
 
 const WORKER_URL =
@@ -439,7 +660,6 @@ pricesButton:"Calcular",
 premiumTitle:"⭐ Business AI Premium",
 premiumDescription:
 "Más herramientas, más funciones y mejores resultados para hacer crecer tu negocio.",
-premiumButton:"Próximamente",
 
 footerText:
 "© 2026 Business AI — Herramientas de negocio con inteligencia artificial"
@@ -481,7 +701,6 @@ pricesButton:"Calculate",
 premiumTitle:"⭐ Business AI Premium",
 premiumDescription:
 "More tools, more features and better results to grow your business.",
-premiumButton:"Coming soon",
 
 footerText:
 "© 2026 Business AI — Business tools powered by artificial intelligence"
@@ -523,7 +742,6 @@ pricesButton:"Calculer",
 premiumTitle:"⭐ Business AI Premium",
 premiumDescription:
 "Plus d'outils, plus de fonctionnalités et de meilleurs résultats pour développer votre entreprise.",
-premiumButton:"Bientôt disponible",
 
 footerText:
 "© 2026 Business AI — Outils professionnels avec intelligence artificielle"
@@ -565,7 +783,6 @@ pricesButton:"Berechnen",
 premiumTitle:"⭐ Business AI Premium",
 premiumDescription:
 "Mehr Tools, mehr Funktionen und bessere Ergebnisse für dein Business.",
-premiumButton:"Demnächst",
 
 footerText:
 "© 2026 Business AI — Business-Tools mit künstlicher Intelligenz"
@@ -576,7 +793,7 @@ footerText:
 
 
 /* =========================
-   DETECTAR IDIOMA
+   IDIOMA
 ========================= */
 
 function detectLanguage(){
@@ -598,10 +815,6 @@ return "es";
 }
 
 
-/* =========================
-   CAMBIAR IDIOMA
-========================= */
-
 let currentLanguage =
 localStorage.getItem("businessAI_language") ||
 detectLanguage();
@@ -610,6 +823,10 @@ detectLanguage();
 document.getElementById("language").value =
 currentLanguage;
 
+
+/* =========================
+   CAMBIAR IDIOMA
+========================= */
 
 function changeLanguage(){
 
@@ -626,16 +843,22 @@ applyLanguage();
 }
 
 
+/* =========================
+   APLICAR IDIOMA
+========================= */
+
 function applyLanguage(){
 
 const t =
 translations[currentLanguage];
+
 
 document.getElementById("heroTitle").textContent =
 t.heroTitle;
 
 document.getElementById("heroDescription").textContent =
 t.heroDescription;
+
 
 document.getElementById("assistantTitle").textContent =
 t.assistantTitle;
@@ -646,6 +869,7 @@ t.assistantDescription;
 document.getElementById("assistantButton").textContent =
 t.assistantButton;
 
+
 document.getElementById("ideasTitle").textContent =
 t.ideasTitle;
 
@@ -654,6 +878,7 @@ t.ideasDescription;
 
 document.getElementById("ideasButton").textContent =
 t.ideasButton;
+
 
 document.getElementById("socialTitle").textContent =
 t.socialTitle;
@@ -664,6 +889,7 @@ t.socialDescription;
 document.getElementById("socialButton").textContent =
 t.socialButton;
 
+
 document.getElementById("adsTitle").textContent =
 t.adsTitle;
 
@@ -672,6 +898,7 @@ t.adsDescription;
 
 document.getElementById("adsButton").textContent =
 t.adsButton;
+
 
 document.getElementById("pricesTitle").textContent =
 t.pricesTitle;
@@ -682,17 +909,59 @@ t.pricesDescription;
 document.getElementById("pricesButton").textContent =
 t.pricesButton;
 
+
 document.getElementById("premiumTitle").textContent =
 t.premiumTitle;
 
 document.getElementById("premiumDescription").textContent =
 t.premiumDescription;
 
-document.getElementById("premiumButton").textContent =
-t.premiumButton;
 
 document.getElementById("footerText").textContent =
 t.footerText;
+
+}
+
+
+/* =========================
+   ABRIR HERRAMIENTA
+========================= */
+
+function openTool(tool){
+
+document.getElementById("homePage").style.display =
+"none";
+
+document.querySelectorAll(".tool-page").forEach(function(page){
+
+page.style.display = "none";
+
+});
+
+document.getElementById(tool + "Page").style.display =
+"block";
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   VOLVER
+========================= */
+
+function goHome(){
+
+document.querySelectorAll(".tool-page").forEach(function(page){
+
+page.style.display = "none";
+
+});
+
+document.getElementById("homePage").style.display =
+"block";
+
+window.scrollTo(0,0);
 
 }
 
@@ -715,7 +984,8 @@ input.value.trim();
 
 if(!text){
 
-result.style.display = "block";
+result.style.display =
+"block";
 
 result.textContent =
 currentLanguage === "es"
@@ -731,7 +1001,8 @@ return;
 }
 
 
-result.style.display = "block";
+result.style.display =
+"block";
 
 result.innerHTML =
 '<div class="loading">🤖 Business AI está pensando...</div>';
@@ -855,7 +1126,8 @@ input.value.trim();
 
 if(!text){
 
-result.style.display="block";
+result.style.display =
+"block";
 
 result.textContent =
 "Escribe primero los datos del producto.";
@@ -865,27 +1137,17 @@ return;
 }
 
 
-/*
-
-Intentamos detectar un precio
-dentro del texto.
-
-Ejemplo:
-
-Compro por 10 €
-
-*/
-
 let match =
 text.match(/(\d+(?:[.,]\d+)?)\s*€/);
 
 
 if(!match){
 
-result.style.display="block";
+result.style.display =
+"block";
 
 result.textContent =
-"Ejemplo: Compro un producto por 10 € y quiero ganar un 40%.";
+"Ejemplo: Compro un producto por 10 € y quiero venderlo al doble.";
 
 return;
 
@@ -910,9 +1172,11 @@ let margin =
 (profit / price) * 100;
 
 
-result.style.display="block";
+result.style.display =
+"block";
 
-result.innerHTML =
+
+result.textContent =
 
 "💰 Coste: " +
 cost.toFixed(2) +
@@ -934,7 +1198,7 @@ margin.toFixed(0) +
 
 
 /* =========================
-   INICIAR
+   INICIO
 ========================= */
 
 applyLanguage();
