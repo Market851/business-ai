@@ -1,230 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Business AI</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial,sans-serif;
 }
 
 body{
-    background:#080b12;
-    color:white;
-    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#111827;
 }
 
 header{
+    background:#111827;
+    color:white;
+    padding:20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 7%;
-    border-bottom:1px solid #202532;
-    position:sticky;
-    top:0;
-    background:#080b12;
-    z-index:10;
+    flex-wrap:wrap;
+    gap:15px;
 }
 
 .logo{
-    font-size:24px;
+    font-size:25px;
     font-weight:bold;
 }
 
-.logo span{
-    color:#4f8cff;
-}
-
 .language{
-    background:#10141e;
-    color:white;
-    border:1px solid #293244;
-    padding:9px 12px;
-    border-radius:9px;
+    padding:10px 14px;
+    border-radius:8px;
+    border:none;
     cursor:pointer;
 }
 
 .hero{
     text-align:center;
-    padding:75px 20px 45px;
-}
-
-.badge{
-    display:inline-block;
-    background:#111a2d;
-    color:#6ea0ff;
-    padding:8px 14px;
-    border-radius:30px;
-    font-size:13px;
-    margin-bottom:20px;
+    padding:70px 20px 45px;
+    background:linear-gradient(135deg,#111827,#2563eb);
+    color:white;
 }
 
 .hero h1{
-    font-size:clamp(38px,6vw,70px);
-    margin-bottom:20px;
-}
-
-.hero h1 span{
-    color:#4f8cff;
+    font-size:46px;
+    margin-bottom:15px;
 }
 
 .hero p{
-    color:#9ba3b4;
-    max-width:650px;
+    font-size:19px;
+    max-width:700px;
     margin:auto;
     line-height:1.6;
 }
 
-.tools{
+.container{
     max-width:1100px;
-    margin:30px auto 80px;
+    margin:40px auto;
     padding:0 20px;
 }
 
-.tool-grid{
+.tools{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:18px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:22px;
 }
 
 .card{
-    background:#10141e;
-    border:1px solid #222a38;
+    background:white;
     border-radius:18px;
     padding:25px;
-    cursor:pointer;
-    transition:.2s;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
-.card:hover{
-    transform:translateY(-4px);
-    border-color:#4f8cff;
-}
-
-.icon{
-    font-size:32px;
-    margin-bottom:15px;
-}
-
-.card h3{
+.card h2{
     margin-bottom:10px;
+    font-size:22px;
 }
 
 .card p{
-    color:#8992a3;
-    font-size:14px;
+    color:#6b7280;
     line-height:1.5;
-}
-
-.workspace{
-    max-width:900px;
-    margin:0 auto 80px;
-    padding:0 20px;
-    display:none;
-}
-
-.workspace.active{
-    display:block;
-}
-
-.workspace h2{
-    margin-bottom:10px;
-}
-
-.workspace-description{
-    color:#8992a3;
-    margin-bottom:20px;
-}
-
-textarea,
-input{
-    width:100%;
-    background:#10141e;
-    border:1px solid #293244;
-    color:white;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:15px;
-    outline:none;
+    margin-bottom:18px;
 }
 
 textarea{
-    min-height:150px;
-    resize:vertical;
-}
-
-textarea:focus,
-input:focus{
-    border-color:#4f8cff;
-}
-
-.primary{
     width:100%;
-    padding:15px;
+    min-height:120px;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    resize:vertical;
+    font-size:15px;
+    outline:none;
+}
+
+textarea:focus{
+    border-color:#2563eb;
+}
+
+button{
+    width:100%;
+    margin-top:12px;
+    padding:13px;
     border:none;
-    border-radius:12px;
-    background:#4f8cff;
+    border-radius:10px;
+    background:#2563eb;
     color:white;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
 }
 
-.primary:hover{
-    background:#3c78df;
+button:hover{
+    background:#1d4ed8;
 }
 
 .result{
-    margin-top:20px;
-    background:#0d1119;
-    border:1px solid #252e3e;
-    border-radius:15px;
-    padding:20px;
+    display:none;
+    margin-top:18px;
+    padding:16px;
+    background:#f3f4f6;
+    border-radius:10px;
     white-space:pre-wrap;
     line-height:1.6;
-    color:#dce2ed;
-    display:none;
 }
 
 .loading{
-    color:#6ea0ff;
-}
-
-.back{
-    margin-bottom:20px;
-    background:none;
-    border:1px solid #30394a;
-    color:#aaa;
-    padding:9px 15px;
-    border-radius:9px;
-    cursor:pointer;
+    text-align:center;
+    font-weight:bold;
 }
 
 .premium{
-    margin-top:20px;
-    padding:25px;
+    margin-top:30px;
+    background:linear-gradient(135deg,#111827,#374151);
+    color:white;
     border-radius:18px;
-    border:1px solid #493d16;
-    background:#151208;
+    padding:35px;
+    text-align:center;
 }
 
-.premium h3{
-    color:#ffd45c;
-    margin-bottom:8px;
+.premium h2{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.premium p{
+    color:#d1d5db;
+    margin-bottom:20px;
+}
+
+.premium button{
+    max-width:300px;
+    background:white;
+    color:#111827;
 }
 
 footer{
     text-align:center;
-    border-top:1px solid #202532;
-    padding:30px;
-    color:#687182;
-    font-size:13px;
+    padding:40px 20px;
+    color:#6b7280;
 }
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .tools{
+        grid-template-columns:1fr;
+    }
+
+}
+
 </style>
 </head>
 
@@ -233,10 +194,10 @@ footer{
 <header>
 
 <div class="logo">
-Business<span>AI</span>
+🤖 Business AI
 </div>
 
-<select class="language" id="language" onchange="changeLanguage()">
+<select id="language" class="language" onchange="changeLanguage()">
 <option value="es">🇪🇸 Español</option>
 <option value="en">🇬🇧 English</option>
 <option value="fr">🇫🇷 Français</option>
@@ -248,626 +209,574 @@ Business<span>AI</span>
 
 <section class="hero">
 
-<div class="badge" id="badge">
-🤖 Inteligencia artificial para tu negocio
-</div>
-
 <h1 id="heroTitle">
-Construye tu negocio<br>
-con <span>IA</span>
+Construye tu negocio con IA
 </h1>
 
-<p id="heroText">
-Genera ideas, crea contenido, prepara anuncios,
-calcula beneficios y habla con Business AI.
+<p id="heroDescription">
+Genera ideas, crea contenido, prepara anuncios, calcula beneficios y habla con Business AI.
 </p>
 
 </section>
 
 
-<section class="tools" id="tools">
+<div class="container">
 
-<div class="tool-grid">
-
-<div class="card" onclick="openTool('assistant')">
-<div class="icon">🤖</div>
-<h3 id="cardAssistant">Asistente Business AI</h3>
-<p id="descAssistant">
-Pregunta lo que quieras sobre negocios, dinero o marketing.
-</p>
-</div>
+<div class="tools">
 
 
-<div class="card" onclick="openTool('ideas')">
-<div class="icon">💡</div>
-<h3 id="cardIdeas">Ideas de negocio</h3>
-<p id="descIdeas">
-Genera ideas adaptadas a tu situación.
-</p>
-</div>
+<!-- ASISTENTE -->
 
-
-<div class="card" onclick="openTool('social')">
-<div class="icon">📱</div>
-<h3 id="cardSocial">Posts TikTok / Instagram</h3>
-<p id="descSocial">
-Crea contenido para redes sociales.
-</p>
-</div>
-
-
-<div class="card" onclick="openTool('ads')">
-<div class="icon">📢</div>
-<h3 id="cardAds">Generador de anuncios</h3>
-<p id="descAds">
-Crea anuncios para vender productos o servicios.
-</p>
-</div>
-
-
-<div class="card" onclick="openTool('calculator')">
-<div class="icon">💰</div>
-<h3 id="cardCalculator">Precios y beneficios</h3>
-<p id="descCalculator">
-Calcula precios, ingresos y beneficios.
-</p>
-</div>
-
-</div>
-
-
-<div class="premium">
-
-<h3 id="premiumTitle">
-⭐ Business AI Premium
-</h3>
-
-<p id="premiumText">
-Más herramientas, más generaciones y funciones avanzadas.
-Próximamente.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- ASSISTANT -->
-
-<section class="workspace" id="assistant">
-
-<button class="back" onclick="backToTools()" id="backAssistant">
-← Volver
-</button>
+<div class="card">
 
 <h2 id="assistantTitle">
 🤖 Asistente Business AI
 </h2>
 
-<p class="workspace-description" id="assistantDescription">
-Habla con la IA y pregunta cualquier cosa relacionada con negocios.
+<p id="assistantDescription">
+Pregunta lo que quieras sobre negocios, dinero, marketing o emprendimiento.
 </p>
 
-<textarea id="assistantInput"
-placeholder="Escribe tu pregunta..."></textarea>
+<textarea
+id="assistantInput"
+placeholder="Escribe tu pregunta..."
+></textarea>
 
-<button class="primary" onclick="askAI('assistant')" id="assistantButton">
-Generar respuesta
+<button onclick="askAI('assistant')" id="assistantButton">
+Preguntar a la IA
 </button>
 
-<div class="result" id="assistantResult"></div>
+<div id="assistantResult" class="result"></div>
 
-</section>
+</div>
 
 
 <!-- IDEAS -->
 
-<section class="workspace" id="ideas">
-
-<button class="back" onclick="backToTools()" id="backIdeas">
-← Volver
-</button>
+<div class="card">
 
 <h2 id="ideasTitle">
-💡 Generador de ideas de negocio
+💡 Ideas de negocio
 </h2>
 
-<p class="workspace-description" id="ideasDescription">
-Explica tu situación y la IA te propondrá ideas de negocio.
+<p id="ideasDescription">
+Genera ideas de negocio adaptadas a tu dinero, habilidades y objetivos.
 </p>
 
-<textarea id="ideasInput"
-placeholder="Ejemplo: Tengo 100 €, me gusta el fútbol y quiero ganar dinero online..."></textarea>
+<textarea
+id="ideasInput"
+placeholder="Ejemplo: Tengo 50 € y quiero ganar dinero por Internet..."
+></textarea>
 
-<button class="primary" onclick="askAI('ideas')" id="ideasButton">
+<button onclick="askAI('ideas')" id="ideasButton">
 Generar ideas
 </button>
 
-<div class="result" id="ideasResult"></div>
+<div id="ideasResult" class="result"></div>
 
-</section>
+</div>
 
 
 <!-- SOCIAL -->
 
-<section class="workspace" id="social">
-
-<button class="back" onclick="backToTools()">
-← <span class="backText">Volver</span>
-</button>
+<div class="card">
 
 <h2 id="socialTitle">
-📱 Generador TikTok / Instagram
+📱 Posts TikTok / Instagram
 </h2>
 
-<p class="workspace-description" id="socialDescription">
-Crea contenido para hacer crecer una marca o vender un producto.
+<p id="socialDescription">
+Crea ideas y textos para publicar en las redes sociales.
 </p>
 
-<textarea id="socialInput"
-placeholder="Ejemplo: Quiero promocionar una tienda de productos de fútbol..."></textarea>
+<textarea
+id="socialInput"
+placeholder="Explica qué quieres publicar..."
+></textarea>
 
-<button class="primary" onclick="askAI('social')" id="socialButton">
+<button onclick="askAI('social')" id="socialButton">
 Crear publicación
 </button>
 
-<div class="result" id="socialResult"></div>
+<div id="socialResult" class="result"></div>
 
-</section>
+</div>
 
 
 <!-- ADS -->
 
-<section class="workspace" id="ads">
-
-<button class="back" onclick="backToTools()">
-← <span class="backText">Volver</span>
-</button>
+<div class="card">
 
 <h2 id="adsTitle">
 📢 Generador de anuncios
 </h2>
 
-<p class="workspace-description" id="adsDescription">
-Escribe qué producto o servicio quieres vender.
+<p id="adsDescription">
+Crea atractivos anuncios para vender productos o servicios.
 </p>
 
-<textarea id="adsInput"
-placeholder="Ejemplo: Quiero vender una mochila deportiva por 29,99 €..."></textarea>
+<textarea
+id="adsInput"
+placeholder="Explica qué quieres vender..."
+></textarea>
 
-<button class="primary" onclick="askAI('ads')" id="adsButton">
+<button onclick="askAI('ads')" id="adsButton">
 Crear anuncio
 </button>
 
-<div class="result" id="adsResult"></div>
+<div id="adsResult" class="result"></div>
 
-</section>
+</div>
 
 
-<!-- CALCULATOR -->
+<!-- PRICES -->
 
-<section class="workspace" id="calculator">
+<div class="card">
 
-<button class="back" onclick="backToTools()">
-← <span class="backText">Volver</span>
-</button>
-
-<h2 id="calculatorTitle">
+<h2 id="pricesTitle">
 💰 Precios y beneficios
 </h2>
 
-<p class="workspace-description" id="calculatorDescription">
-Calcula cuánto podrías ganar con un producto.
+<p id="pricesDescription">
+Calcula precios de venta, margen y beneficio aproximado.
 </p>
 
-<input id="cost" type="number" placeholder="Coste del producto (€)">
+<textarea
+id="pricesInput"
+placeholder="Ejemplo: Compro un producto por 10 € y quiero ganar un 40%..."
+></textarea>
 
-<input id="price" type="number" placeholder="Precio de venta (€)">
-
-<input id="quantity" type="number" placeholder="Número de ventas">
-
-<button class="primary" onclick="calculate()" id="calculatorButton">
-Calcular beneficio
+<button onclick="calculatePrice()" id="pricesButton">
+Calcular
 </button>
 
-<div class="result" id="calculatorResult"></div>
+<div id="pricesResult" class="result"></div>
 
-</section>
+</div>
+
+</div>
 
 
-<footer id="footer">
-Business AI · Herramientas inteligentes para emprendedores
+<!-- PREMIUM -->
+
+<div class="premium">
+
+<h2 id="premiumTitle">
+⭐ Business AI Premium
+</h2>
+
+<p id="premiumDescription">
+Más herramientas, más funciones y mejores resultados para hacer crecer tu negocio.
+</p>
+
+<button id="premiumButton">
+Próximamente
+</button>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<span id="footerText">
+© 2026 Business AI — Herramientas de negocio con inteligencia artificial
+</span>
+
 </footer>
 
 
 <script>
 
+
+/* =========================
+   CONFIGURACIÓN
+========================= */
+
 const WORKER_URL =
 "https://buusinessai.khalilidrissibachiri.workers.dev/";
 
 
+/* =========================
+   TRADUCCIONES
+========================= */
+
 const translations = {
 
 es:{
-badge:"🤖 Inteligencia artificial para tu negocio",
-heroTitle:"Construye tu negocio<br>con <span>IA</span>",
-heroText:"Genera ideas, crea contenido, prepara anuncios, calcula beneficios y habla con Business AI.",
 
-assistant:"Asistente Business AI",
-assistantDesc:"Pregunta lo que quieras sobre negocios, dinero o marketing.",
+heroTitle:"Construye tu negocio con IA",
 
-ideas:"Ideas de negocio",
-ideasDesc:"Genera ideas adaptadas a tu situación.",
-
-social:"Posts TikTok / Instagram",
-socialDesc:"Crea contenido para redes sociales.",
-
-ads:"Generador de anuncios",
-adsDesc:"Crea anuncios para vender productos o servicios.",
-
-calculator:"Precios y beneficios",
-calculatorDesc:"Calcula precios, ingresos y beneficios.",
-
-premium:"⭐ Business AI Premium",
-premiumText:"Más herramientas, más generaciones y funciones avanzadas. Próximamente.",
-
-back:"Volver",
+heroDescription:
+"Genera ideas, crea contenido, prepara anuncios, calcula beneficios y habla con Business AI.",
 
 assistantTitle:"🤖 Asistente Business AI",
-assistantDescription:"Habla con la IA y pregunta cualquier cosa relacionada con negocios.",
-assistantButton:"Generar respuesta",
+assistantDescription:
+"Pregunta lo que quieras sobre negocios, dinero, marketing o emprendimiento.",
+assistantButton:"Preguntar a la IA",
 
-ideasTitle:"💡 Generador de ideas de negocio",
-ideasDescription:"Explica tu situación y la IA te propondrá ideas de negocio.",
+ideasTitle:"💡 Ideas de negocio",
+ideasDescription:
+"Genera ideas de negocio adaptadas a tu dinero, habilidades y objetivos.",
 ideasButton:"Generar ideas",
 
-socialTitle:"📱 Generador TikTok / Instagram",
-socialDescription:"Crea contenido para hacer crecer una marca o vender un producto.",
+socialTitle:"📱 Posts TikTok / Instagram",
+socialDescription:
+"Crea ideas y textos para publicar en las redes sociales.",
 socialButton:"Crear publicación",
 
 adsTitle:"📢 Generador de anuncios",
-adsDescription:"Escribe qué producto o servicio quieres vender.",
+adsDescription:
+"Crea atractivos anuncios para vender productos o servicios.",
 adsButton:"Crear anuncio",
 
-calculatorTitle:"💰 Precios y beneficios",
-calculatorDescription:"Calcula cuánto podrías ganar con un producto.",
-calculatorButton:"Calcular beneficio",
+pricesTitle:"💰 Precios y beneficios",
+pricesDescription:
+"Calcula precios de venta, margen y beneficio aproximado.",
+pricesButton:"Calcular",
 
-footer:"Business AI · Herramientas inteligentes para emprendedores"
+premiumTitle:"⭐ Business AI Premium",
+premiumDescription:
+"Más herramientas, más funciones y mejores resultados para hacer crecer tu negocio.",
+premiumButton:"Próximamente",
+
+footerText:
+"© 2026 Business AI — Herramientas de negocio con inteligencia artificial"
+
 },
 
 en:{
-badge:"🤖 Artificial intelligence for your business",
-heroTitle:"Build your business<br>with <span>AI</span>",
-heroText:"Generate ideas, create content, prepare ads, calculate profits and talk with Business AI.",
 
-assistant:"Business AI Assistant",
-assistantDesc:"Ask anything about business, money or marketing.",
+heroTitle:"Build your business with AI",
 
-ideas:"Business ideas",
-ideasDesc:"Generate ideas adapted to your situation.",
-
-social:"TikTok / Instagram Posts",
-socialDesc:"Create content for social media.",
-
-ads:"Ad Generator",
-adsDesc:"Create ads to sell products or services.",
-
-calculator:"Prices & profits",
-calculatorDesc:"Calculate prices, revenue and profits.",
-
-premium:"⭐ Business AI Premium",
-premiumText:"More tools, more generations and advanced features. Coming soon.",
-
-back:"Back",
+heroDescription:
+"Generate ideas, create content, prepare ads, calculate profits and talk to Business AI.",
 
 assistantTitle:"🤖 Business AI Assistant",
-assistantDescription:"Talk with AI and ask anything related to business.",
-assistantButton:"Generate answer",
+assistantDescription:
+"Ask anything about business, money, marketing or entrepreneurship.",
+assistantButton:"Ask AI",
 
-ideasTitle:"💡 Business Idea Generator",
-ideasDescription:"Explain your situation and AI will suggest business ideas.",
+ideasTitle:"💡 Business ideas",
+ideasDescription:
+"Generate business ideas based on your money, skills and goals.",
 ideasButton:"Generate ideas",
 
-socialTitle:"📱 TikTok / Instagram Generator",
-socialDescription:"Create content to grow a brand or sell a product.",
+socialTitle:"📱 TikTok / Instagram Posts",
+socialDescription:
+"Create ideas and text for your social media posts.",
 socialButton:"Create post",
 
 adsTitle:"📢 Ad Generator",
-adsDescription:"Write the product or service you want to sell.",
+adsDescription:
+"Create attractive ads to sell products or services.",
 adsButton:"Create ad",
 
-calculatorTitle:"💰 Prices & profits",
-calculatorDescription:"Calculate how much you could earn from a product.",
-calculatorButton:"Calculate profit",
+pricesTitle:"💰 Prices and profits",
+pricesDescription:
+"Calculate selling prices, margins and approximate profits.",
+pricesButton:"Calculate",
 
-footer:"Business AI · Smart tools for entrepreneurs"
+premiumTitle:"⭐ Business AI Premium",
+premiumDescription:
+"More tools, more features and better results to grow your business.",
+premiumButton:"Coming soon",
+
+footerText:
+"© 2026 Business AI — Business tools powered by artificial intelligence"
+
 },
 
 fr:{
-badge:"🤖 Intelligence artificielle pour votre entreprise",
-heroTitle:"Développez votre entreprise<br>avec <span>l'IA</span>",
-heroText:"Générez des idées, créez du contenu, préparez des publicités et calculez vos bénéfices.",
 
-assistant:"Assistant Business AI",
-assistantDesc:"Posez vos questions sur les affaires, l'argent ou le marketing.",
+heroTitle:"Construisez votre entreprise avec l'IA",
 
-ideas:"Idées de business",
-ideasDesc:"Générez des idées adaptées à votre situation.",
-
-social:"Posts TikTok / Instagram",
-socialDesc:"Créez du contenu pour les réseaux sociaux.",
-
-ads:"Générateur de publicités",
-adsDesc:"Créez des publicités pour vendre vos produits ou services.",
-
-calculator:"Prix et bénéfices",
-calculatorDesc:"Calculez vos prix, revenus et bénéfices.",
-
-premium:"⭐ Business AI Premium",
-premiumText:"Plus d'outils et de fonctionnalités avancées. Bientôt disponible.",
-
-back:"Retour",
+heroDescription:
+"Générez des idées, créez du contenu, préparez des publicités, calculez vos bénéfices et discutez avec Business AI.",
 
 assistantTitle:"🤖 Assistant Business AI",
-assistantDescription:"Parlez avec l'IA et posez vos questions sur le business.",
-assistantButton:"Générer une réponse",
+assistantDescription:
+"Posez vos questions sur les affaires, l'argent, le marketing ou l'entrepreneuriat.",
+assistantButton:"Demander à l'IA",
 
-ideasTitle:"💡 Générateur d'idées business",
-ideasDescription:"Expliquez votre situation et l'IA proposera des idées.",
+ideasTitle:"💡 Idées de business",
+ideasDescription:
+"Générez des idées adaptées à votre argent, vos compétences et vos objectifs.",
 ideasButton:"Générer des idées",
 
-socialTitle:"📱 Générateur TikTok / Instagram",
-socialDescription:"Créez du contenu pour développer une marque.",
+socialTitle:"📱 Posts TikTok / Instagram",
+socialDescription:
+"Créez des idées et des textes pour vos réseaux sociaux.",
 socialButton:"Créer une publication",
 
 adsTitle:"📢 Générateur de publicités",
-adsDescription:"Écrivez le produit ou service que vous voulez vendre.",
+adsDescription:
+"Créez des publicités attractives pour vendre des produits ou services.",
 adsButton:"Créer une publicité",
 
-calculatorTitle:"💰 Prix et bénéfices",
-calculatorDescription:"Calculez combien vous pourriez gagner.",
-calculatorButton:"Calculer le bénéfice",
+pricesTitle:"💰 Prix et bénéfices",
+pricesDescription:
+"Calculez les prix de vente, les marges et les bénéfices approximatifs.",
+pricesButton:"Calculer",
 
-footer:"Business AI · Outils intelligents pour entrepreneurs"
+premiumTitle:"⭐ Business AI Premium",
+premiumDescription:
+"Plus d'outils, plus de fonctionnalités et de meilleurs résultats pour développer votre entreprise.",
+premiumButton:"Bientôt disponible",
+
+footerText:
+"© 2026 Business AI — Outils professionnels avec intelligence artificielle"
+
 },
 
 de:{
-badge:"🤖 Künstliche Intelligenz für dein Unternehmen",
-heroTitle:"Baue dein Business<br>mit <span>KI</span>",
-heroText:"Generiere Ideen, erstelle Inhalte, bereite Werbung vor und berechne Gewinne.",
 
-assistant:"Business AI Assistent",
-assistantDesc:"Frage alles über Business, Geld oder Marketing.",
+heroTitle:"Baue dein Business mit KI auf",
 
-ideas:"Geschäftsideen",
-ideasDesc:"Generiere Ideen passend zu deiner Situation.",
-
-social:"TikTok / Instagram Posts",
-socialDesc:"Erstelle Inhalte für soziale Netzwerke.",
-
-ads:"Werbe-Generator",
-adsDesc:"Erstelle Werbung für Produkte oder Dienstleistungen.",
-
-calculator:"Preise & Gewinne",
-calculatorDesc:"Berechne Preise, Einnahmen und Gewinne.",
-
-premium:"⭐ Business AI Premium",
-premiumText:"Mehr Tools und erweiterte Funktionen. Demnächst verfügbar.",
-
-back:"Zurück",
+heroDescription:
+"Generiere Ideen, erstelle Inhalte, bereite Werbung vor, berechne Gewinne und sprich mit Business AI.",
 
 assistantTitle:"🤖 Business AI Assistent",
-assistantDescription:"Sprich mit der KI und frage alles rund ums Business.",
-assistantButton:"Antwort generieren",
+assistantDescription:
+"Frage alles über Business, Geld, Marketing oder Unternehmertum.",
+assistantButton:"KI fragen",
 
-ideasTitle:"💡 Geschäftsideen-Generator",
-ideasDescription:"Beschreibe deine Situation und die KI schlägt Ideen vor.",
+ideasTitle:"💡 Geschäftsideen",
+ideasDescription:
+"Generiere Geschäftsideen passend zu deinem Geld, deinen Fähigkeiten und deinen Zielen.",
 ideasButton:"Ideen generieren",
 
-socialTitle:"📱 TikTok / Instagram Generator",
-socialDescription:"Erstelle Inhalte für deine Marke oder dein Produkt.",
+socialTitle:"📱 TikTok / Instagram Posts",
+socialDescription:
+"Erstelle Ideen und Texte für deine Social-Media-Beiträge.",
 socialButton:"Beitrag erstellen",
 
 adsTitle:"📢 Werbe-Generator",
-adsDescription:"Schreibe das Produkt oder die Dienstleistung, die du verkaufen möchtest.",
+adsDescription:
+"Erstelle attraktive Werbung für Produkte oder Dienstleistungen.",
 adsButton:"Werbung erstellen",
 
-calculatorTitle:"💰 Preise & Gewinne",
-calculatorDescription:"Berechne, wie viel du mit einem Produkt verdienen könntest.",
-calculatorButton:"Gewinn berechnen",
+pricesTitle:"💰 Preise und Gewinne",
+pricesDescription:
+"Berechne Verkaufspreise, Margen und ungefähre Gewinne.",
+pricesButton:"Berechnen",
 
-footer:"Business AI · Intelligente Tools für Unternehmer"
+premiumTitle:"⭐ Business AI Premium",
+premiumDescription:
+"Mehr Tools, mehr Funktionen und bessere Ergebnisse für dein Business.",
+premiumButton:"Demnächst",
+
+footerText:
+"© 2026 Business AI — Business-Tools mit künstlicher Intelligenz"
+
 }
 
 };
 
+
+/* =========================
+   DETECTAR IDIOMA
+========================= */
 
 function detectLanguage(){
 
 let browser =
 navigator.language.toLowerCase();
 
-if(browser.startsWith("en")) return "en";
-if(browser.startsWith("fr")) return "fr";
-if(browser.startsWith("de")) return "de";
+if(browser.startsWith("en"))
+return "en";
+
+if(browser.startsWith("fr"))
+return "fr";
+
+if(browser.startsWith("de"))
+return "de";
 
 return "es";
 
 }
 
 
+/* =========================
+   CAMBIAR IDIOMA
+========================= */
+
+let currentLanguage =
+localStorage.getItem("businessAI_language") ||
+detectLanguage();
+
+
+document.getElementById("language").value =
+currentLanguage;
+
+
 function changeLanguage(){
 
-let lang =
+currentLanguage =
 document.getElementById("language").value;
 
-applyLanguage(lang);
+localStorage.setItem(
+"businessAI_language",
+currentLanguage
+);
+
+applyLanguage();
 
 }
 
 
-function applyLanguage(lang){
+function applyLanguage(){
 
 const t =
-translations[lang];
+translations[currentLanguage];
 
-document.documentElement.lang=lang;
+document.getElementById("heroTitle").textContent =
+t.heroTitle;
 
-document.getElementById("badge").innerHTML=t.badge;
+document.getElementById("heroDescription").textContent =
+t.heroDescription;
 
-document.getElementById("heroTitle").innerHTML=t.heroTitle;
+document.getElementById("assistantTitle").textContent =
+t.assistantTitle;
 
-document.getElementById("heroText").textContent=t.heroText;
+document.getElementById("assistantDescription").textContent =
+t.assistantDescription;
 
-document.getElementById("cardAssistant").textContent=t.assistant;
-document.getElementById("descAssistant").textContent=t.assistantDesc;
+document.getElementById("assistantButton").textContent =
+t.assistantButton;
 
-document.getElementById("cardIdeas").textContent=t.ideas;
-document.getElementById("descIdeas").textContent=t.ideasDesc;
+document.getElementById("ideasTitle").textContent =
+t.ideasTitle;
 
-document.getElementById("cardSocial").textContent=t.social;
-document.getElementById("descSocial").textContent=t.socialDesc;
+document.getElementById("ideasDescription").textContent =
+t.ideasDescription;
 
-document.getElementById("cardAds").textContent=t.ads;
-document.getElementById("descAds").textContent=t.adsDesc;
+document.getElementById("ideasButton").textContent =
+t.ideasButton;
 
-document.getElementById("cardCalculator").textContent=t.calculator;
-document.getElementById("descCalculator").textContent=t.calculatorDesc;
+document.getElementById("socialTitle").textContent =
+t.socialTitle;
 
-document.getElementById("premiumTitle").textContent=t.premium;
-document.getElementById("premiumText").textContent=t.premiumText;
+document.getElementById("socialDescription").textContent =
+t.socialDescription;
 
-document.getElementById("assistantTitle").textContent=t.assistantTitle;
-document.getElementById("assistantDescription").textContent=t.assistantDescription;
-document.getElementById("assistantButton").textContent=t.assistantButton;
+document.getElementById("socialButton").textContent =
+t.socialButton;
 
-document.getElementById("ideasTitle").textContent=t.ideasTitle;
-document.getElementById("ideasDescription").textContent=t.ideasDescription;
-document.getElementById("ideasButton").textContent=t.ideasButton;
+document.getElementById("adsTitle").textContent =
+t.adsTitle;
 
-document.getElementById("socialTitle").textContent=t.socialTitle;
-document.getElementById("socialDescription").textContent=t.socialDescription;
-document.getElementById("socialButton").textContent=t.socialButton;
+document.getElementById("adsDescription").textContent =
+t.adsDescription;
 
-document.getElementById("adsTitle").textContent=t.adsTitle;
-document.getElementById("adsDescription").textContent=t.adsDescription;
-document.getElementById("adsButton").textContent=t.adsButton;
+document.getElementById("adsButton").textContent =
+t.adsButton;
 
-document.getElementById("calculatorTitle").textContent=t.calculatorTitle;
-document.getElementById("calculatorDescription").textContent=t.calculatorDescription;
-document.getElementById("calculatorButton").textContent=t.calculatorButton;
+document.getElementById("pricesTitle").textContent =
+t.pricesTitle;
 
-document.getElementById("footer").textContent=t.footer;
+document.getElementById("pricesDescription").textContent =
+t.pricesDescription;
 
-document.querySelectorAll(".backText")
-.forEach(x=>x.textContent=t.back);
+document.getElementById("pricesButton").textContent =
+t.pricesButton;
 
-document.getElementById("backAssistant").textContent="← "+t.back;
-document.getElementById("backIdeas").textContent="← "+t.back;
+document.getElementById("premiumTitle").textContent =
+t.premiumTitle;
 
-}
+document.getElementById("premiumDescription").textContent =
+t.premiumDescription;
 
+document.getElementById("premiumButton").textContent =
+t.premiumButton;
 
-function openTool(id){
-
-document.getElementById("tools").style.display="none";
-
-document.querySelectorAll(".workspace")
-.forEach(x=>x.classList.remove("active"));
-
-document.getElementById(id).classList.add("active");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+document.getElementById("footerText").textContent =
+t.footerText;
 
 }
 
 
-function backToTools(){
-
-document.querySelectorAll(".workspace")
-.forEach(x=>x.classList.remove("active"));
-
-document.getElementById("tools").style.display="block";
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
+/* =========================
+   IA
+========================= */
 
 async function askAI(type){
 
 let input =
-document.getElementById(type+"Input");
+document.getElementById(type + "Input");
 
 let result =
-document.getElementById(type+"Result");
+document.getElementById(type + "Result");
 
 let text =
 input.value.trim();
 
+
 if(!text){
 
-result.style.display="block";
-result.textContent="Please write something first.";
+result.style.display = "block";
+
+result.textContent =
+currentLanguage === "es"
+? "Escribe algo primero."
+: currentLanguage === "en"
+? "Please write something first."
+: currentLanguage === "fr"
+? "Veuillez d'abord écrire quelque chose."
+: "Bitte schreibe zuerst etwas.";
+
 return;
 
 }
 
-result.style.display="block";
 
-result.innerHTML=
-'<div class="loading">🤖 Business AI is thinking...</div>';
+result.style.display = "block";
 
-let instruction="";
+result.innerHTML =
+'<div class="loading">🤖 Business AI está pensando...</div>';
 
-if(type==="assistant"){
 
-instruction=
-"Answer the user as a helpful business AI assistant. " +
-"Give practical, clear and useful advice. " +
-"Answer in the SAME LANGUAGE as the user's message. User question: ";
+let instruction = "";
 
-}
 
-if(type==="ideas"){
+if(type === "assistant"){
 
-instruction=
-"Generate 3 realistic business ideas based on the user's situation. " +
-"For each idea explain how to start, how to get the first customers " +
-"and how money could be made. Answer in the SAME LANGUAGE as the user. Situation: ";
+instruction =
+"Answer the user as a helpful business AI assistant. Give practical, clear and useful advice. Answer in the SAME LANGUAGE as the user's message. User question: ";
 
 }
 
-if(type==="social"){
 
-instruction=
-"Create an attractive TikTok or Instagram post based on the information. " +
-"Include a strong hook, video text, call to action and hashtags. " +
-"Answer in the SAME LANGUAGE as the user. Information: ";
+if(type === "ideas"){
+
+instruction =
+"Generate 3 realistic business ideas based on the user's situation. For each idea explain how to start, how to get the first customers and how money could be made. Answer in the SAME LANGUAGE as the user. Situation: ";
 
 }
 
-if(type==="ads"){
 
-instruction=
-"Create a professional and persuasive advertisement for this product or service. " +
-"Include a headline, main text and call to action. " +
-"Answer in the SAME LANGUAGE as the user. Product: ";
+if(type === "social"){
+
+instruction =
+"Create an attractive TikTok or Instagram post based on the information. Include a strong hook, video text, call to action and hashtags. Answer in the SAME LANGUAGE as the user. Information: ";
+
+}
+
+
+if(type === "ads"){
+
+instruction =
+"Create a professional and persuasive advertisement for this product or service. Include a headline, main text and call to action. Answer in the SAME LANGUAGE as the user. Product: ";
 
 }
 
 
 try{
 
-const response=
+const response =
 await fetch(WORKER_URL,{
+
 method:"POST",
 
 headers:{
@@ -875,32 +784,50 @@ headers:{
 },
 
 body:JSON.stringify({
-prompt:instruction+text
+
+message:instruction + text
+
 })
 
 });
 
-const data=
+
+const data =
 await response.json();
+
 
 if(data.response){
 
-result.textContent=data.response;
+result.textContent =
+data.response;
 
-}else if(data.result){
+}
 
-result.textContent=data.result;
+else if(data.result){
 
-}else{
+result.textContent =
+data.result;
 
-result.textContent=
+}
+
+else if(data.error){
+
+result.textContent =
+"❌ " + data.error;
+
+}
+
+else{
+
+result.textContent =
 JSON.stringify(data,null,2);
 
 }
 
+
 }catch(error){
 
-result.textContent=
+result.textContent =
 "❌ Connection error. Please try again.";
 
 console.error(error);
@@ -910,58 +837,107 @@ console.error(error);
 }
 
 
-function calculate(){
+/* =========================
+   CALCULADORA
+========================= */
 
-const cost=
-parseFloat(document.getElementById("cost").value)||0;
+function calculatePrice(){
 
-const price=
-parseFloat(document.getElementById("price").value)||0;
+let input =
+document.getElementById("pricesInput");
 
-const quantity=
-parseInt(document.getElementById("quantity").value)||0;
+let result =
+document.getElementById("pricesResult");
 
-const profitPerUnit=
-price-cost;
+let text =
+input.value.trim();
 
-const totalProfit=
-profitPerUnit*quantity;
 
-const revenue=
-price*quantity;
-
-const lang=
-document.getElementById("language").value;
-
-let title="RESULT";
-
-if(lang==="es") title="RESULTADO";
-if(lang==="fr") title="RÉSULTAT";
-if(lang==="de") title="ERGEBNIS";
-
-const result=
-document.getElementById("calculatorResult");
+if(!text){
 
 result.style.display="block";
 
-result.textContent=
-"💰 "+title+"\n\n"+
-"Price: "+price.toFixed(2)+" €\n\n"+
-"Cost: "+cost.toFixed(2)+" €\n\n"+
-"Profit per sale: "+profitPerUnit.toFixed(2)+" €\n\n"+
-"Revenue: "+revenue.toFixed(2)+" €\n\n"+
-"🔥 Total profit: "+totalProfit.toFixed(2)+" €";
+result.textContent =
+"Escribe primero los datos del producto.";
+
+return;
 
 }
 
 
-const detectedLanguage=
-detectLanguage();
+/*
 
-document.getElementById("language").value=
-detectedLanguage;
+Intentamos detectar un precio
+dentro del texto.
 
-applyLanguage(detectedLanguage);
+Ejemplo:
+
+Compro por 10 €
+
+*/
+
+let match =
+text.match(/(\d+(?:[.,]\d+)?)\s*€/);
+
+
+if(!match){
+
+result.style.display="block";
+
+result.textContent =
+"Ejemplo: Compro un producto por 10 € y quiero ganar un 40%.";
+
+return;
+
+}
+
+
+let cost =
+parseFloat(
+match[1].replace(",",".")
+);
+
+
+let price =
+cost * 2;
+
+
+let profit =
+price - cost;
+
+
+let margin =
+(profit / price) * 100;
+
+
+result.style.display="block";
+
+result.innerHTML =
+
+"💰 Coste: " +
+cost.toFixed(2) +
+" €\n\n" +
+
+"🏷️ Precio recomendado: " +
+price.toFixed(2) +
+" €\n\n" +
+
+"📈 Beneficio: " +
+profit.toFixed(2) +
+" €\n\n" +
+
+"📊 Margen aproximado: " +
+margin.toFixed(0) +
+"%";
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+applyLanguage();
 
 </script>
 
