@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Business AI - Herramientas de inteligencia artificial para crear y hacer crecer tu negocio.">
 <title>Business AI</title>
 
 <style>
@@ -343,7 +344,7 @@ main{
 
 .premium-banner{
   margin-top:18px;
-  padding:24px;
+  padding:28px;
   border-radius:20px;
   background:
     radial-gradient(circle at 90% 0%,rgba(59,130,246,.3),transparent 35%),
@@ -604,60 +605,140 @@ textarea:focus{
   50%{opacity:1}
 }
 
-/* PREMIUM PAGE */
+/* ==================================
+   PREMIUM PAGE - NUEVO DISEÑO
+================================== */
 
 .premium-box{
   background:
-    radial-gradient(circle at 100% 0%,rgba(37,99,235,.15),transparent 30%),
-    linear-gradient(145deg,#111827,#0c1320);
+    radial-gradient(circle at 100% 0%,rgba(37,99,235,.20),transparent 32%),
+    radial-gradient(circle at 0% 100%,rgba(59,130,246,.08),transparent 30%),
+    linear-gradient(145deg,#111827,#080e19);
   border:1px solid #1d4ed8;
-  border-radius:24px;
-  padding:34px;
-  max-width:950px;
+  border-radius:26px;
+  padding:38px;
+  max-width:1000px;
   margin:auto;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.03);
 }
 
-.premium-box h2{
-  font-size:34px;
-  margin-bottom:10px;
+.premium-top{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 35px;
 }
 
-.premium-box > p{
+.premium-top .badge{
+  font-size:11px;
+  padding:6px 11px;
+}
+
+.premium-top h2{
+  font-size:clamp(32px,5vw,48px);
+  letter-spacing:-1.8px;
+  line-height:1.05;
+  margin:5px 0 15px;
+}
+
+.premium-gradient{
+  background:linear-gradient(90deg,#60a5fa,#3b82f6,#93c5fd);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.premium-top p{
   color:#94a3b8;
-  margin-bottom:28px;
-  line-height:1.6;
+  line-height:1.7;
+  font-size:16px;
 }
 
-.features{
+/* PREMIUM PRICE */
+
+.premium-offer{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  grid-template-columns:1fr 330px;
+  gap:20px;
   margin-bottom:28px;
 }
 
-.feature{
-  padding:17px;
-  background:#090f19;
+.premium-value{
+  background:rgba(8,13,22,.72);
   border:1px solid #1e293b;
-  border-radius:13px;
-  color:#e5e7eb;
-  line-height:1.5;
-  transition:.2s;
+  border-radius:18px;
+  padding:23px;
 }
 
-.feature:hover{
-  border-color:#2563eb;
-  transform:translateY(-2px);
+.premium-value h3{
+  font-size:19px;
+  margin-bottom:15px;
 }
 
-.feature small{
-  color:#64748b;
+.value-list{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+
+.value-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#dbeafe;
+  font-size:14px;
+}
+
+.value-check{
+  width:23px;
+  height:23px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(34,197,94,.12);
+  border:1px solid rgba(34,197,94,.3);
+  color:#4ade80;
+  flex:none;
+  font-size:12px;
+}
+
+.price-card{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(59,130,246,.22),transparent 45%),
+    #0b1220;
+  border:1px solid #2563eb;
+  border-radius:18px;
+  padding:24px;
+  text-align:center;
+}
+
+.price-card::before{
+  content:"MEJOR OPCIÓN";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  background:#2563eb;
+  color:white;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  padding:6px;
+}
+
+.price-card .price{
+  margin-top:27px;
 }
 
 .price{
-  font-size:38px;
+  font-size:42px;
   font-weight:900;
-  margin:25px 0 5px;
+  letter-spacing:-1px;
+  margin:0 0 3px;
 }
 
 .price small{
@@ -666,11 +747,201 @@ textarea:focus{
   font-weight:500;
 }
 
-.demo-note{
+.price-description{
   color:#64748b;
   font-size:12px;
+  margin-bottom:10px;
+}
+
+.price-card .primary{
+  margin-top:14px;
+}
+
+.demo-note{
+  color:#64748b;
+  font-size:11px;
   text-align:center;
-  margin-top:10px;
+  margin-top:9px;
+  line-height:1.5;
+}
+
+/* PREMIUM SECTION */
+
+.premium-section-title{
+  text-align:center;
+  margin:35px 0 17px;
+}
+
+.premium-section-title h3{
+  font-size:23px;
+  margin-bottom:5px;
+}
+
+.premium-section-title p{
+  color:#64748b;
+  font-size:13px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.feature{
+  padding:17px;
+  background:rgba(9,15,25,.8);
+  border:1px solid #1e293b;
+  border-radius:14px;
+  color:#e5e7eb;
+  line-height:1.5;
+  transition:.2s;
+  min-height:95px;
+}
+
+.feature:hover{
+  border-color:#2563eb;
+  transform:translateY(-2px);
+  background:#0c1524;
+}
+
+.feature-icon{
+  font-size:22px;
+  display:block;
+  margin-bottom:8px;
+}
+
+.feature strong{
+  font-size:14px;
+}
+
+.feature small{
+  display:block;
+  color:#64748b;
+  margin-top:3px;
+  font-size:11px;
+}
+
+/* PREMIUM CTA */
+
+.premium-cta{
+  margin-top:25px;
+  padding:23px;
+  border-radius:17px;
+  background:
+    linear-gradient(135deg,rgba(37,99,235,.13),rgba(59,130,246,.04));
+  border:1px solid rgba(37,99,235,.3);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.premium-cta-text h3{
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.premium-cta-text p{
+  color:#94a3b8;
+  font-size:13px;
+}
+
+.premium-cta .primary{
+  width:auto;
+  min-width:190px;
+  margin:0;
+}
+
+/* TRUST */
+
+.trust-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:20px 0 5px;
+}
+
+.trust-card{
+  padding:16px;
+  border-radius:13px;
+  background:#090f19;
+  border:1px solid #1e293b;
+  text-align:center;
+}
+
+.trust-card .trust-icon{
+  font-size:21px;
+  margin-bottom:7px;
+}
+
+.trust-card strong{
+  display:block;
+  font-size:12px;
+  margin-bottom:3px;
+}
+
+.trust-card span{
+  color:#64748b;
+  font-size:10px;
+}
+
+/* FAQ */
+
+.faq{
+  margin-top:30px;
+}
+
+.faq h3{
+  text-align:center;
+  margin-bottom:15px;
+  font-size:22px;
+}
+
+.faq-item{
+  border:1px solid #1e293b;
+  background:#090f19;
+  border-radius:12px;
+  margin-bottom:8px;
+  overflow:hidden;
+}
+
+.faq-question{
+  width:100%;
+  padding:16px;
+  border:none;
+  background:none;
+  color:#f8fafc;
+  text-align:left;
+  cursor:pointer;
+  font-weight:800;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.faq-question span:last-child{
+  color:#60a5fa;
+  font-size:18px;
+}
+
+.faq-answer{
+  display:none;
+  padding:0 16px 16px;
+  color:#94a3b8;
+  line-height:1.6;
+  font-size:13px;
+}
+
+.faq-item.open .faq-answer{
+  display:block;
+}
+
+.faq-item.open .faq-question span:last-child{
+  transform:rotate(45deg);
 }
 
 /* SAVED */
@@ -746,7 +1017,7 @@ footer{
 
 /* MOBILE */
 
-@media(max-width:800px){
+@media(max-width:900px){
 
   .dashboard{
     grid-template-columns:1fr;
@@ -756,9 +1027,21 @@ footer{
     grid-template-columns:1fr;
   }
 
-  .features{
+  .premium-offer{
     grid-template-columns:1fr;
   }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .trust-row{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:800px){
 
   .hero h1{
     font-size:39px;
@@ -808,6 +1091,32 @@ footer{
 
   .premium-banner button{
     width:100%;
+  }
+
+  .premium-cta{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .premium-cta .primary{
+    width:100%;
+  }
+
+}
+
+@media(max-width:550px){
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .premium-box{
+    border-radius:19px;
+    padding:17px;
+  }
+
+  .premium-top h2{
+    font-size:34px;
   }
 
 }
@@ -1345,33 +1654,87 @@ placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."
 
 <div class="premium-box">
 
-<span class="badge">⭐ PREMIUM</span>
+<div class="premium-top">
 
-<h2>Business AI Premium</h2>
+<span class="badge">⭐ BUSINESS AI PREMIUM</span>
+
+<h2>
+Todo lo que necesitas para crear tu negocio con
+<span class="premium-gradient">IA</span>
+</h2>
 
 <p>
-El centro de herramientas avanzado para crear, lanzar y hacer crecer un negocio.
+Pasa de tener una idea a tener una estrategia completa.
+Business AI reúne las herramientas necesarias para planificar,
+crear contenido, conseguir clientes y hacer crecer tu negocio.
 </p>
-
-<div class="features">
-
-<div class="feature">🚀 <strong>Business Builder</strong><br>Construye un negocio completo.</div>
-<div class="feature">📱 <strong>Social Media Pro</strong><br>Estrategia completa de redes.</div>
-<div class="feature">📊 <strong>Análisis de competencia</strong><br>Encuentra oportunidades.</div>
-<div class="feature">🎯 <strong>Cliente ideal</strong><br>Define a quién vender.</div>
-<div class="feature">💰 <strong>Beneficios</strong><br>Analiza rentabilidad.</div>
-<div class="feature">📢 <strong>Campañas</strong><br>Crea campañas completas.</div>
-<div class="feature">📝 <strong>Contenido</strong><br>Genera contenido.</div>
-<div class="feature">🗓️ <strong>Planes 30/60/90</strong><br>Planifica el crecimiento.</div>
-<div class="feature">🤝 <strong>Clientes</strong><br>Consigue clientes.</div>
-<div class="feature">📈 <strong>Crecimiento</strong><br>Haz crecer el negocio.</div>
-<div class="feature">💾 <strong>Guardar resultados</strong><br>Guarda tus estrategias.</div>
-<div class="feature">📋 <strong>Copiar resultados</strong><br>Copia cualquier respuesta.</div>
 
 </div>
 
+
+<!-- OFERTA -->
+
+<div class="premium-offer">
+
+<div class="premium-value">
+
+<h3>💎 ¿Qué desbloqueas?</h3>
+
+<div class="value-list">
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>10 herramientas avanzadas de IA</span>
+</div>
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Generaciones ilimitadas</span>
+</div>
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Business Builder completo</span>
+</div>
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Estrategias de TikTok e Instagram</span>
+</div>
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Análisis de competencia y cliente ideal</span>
+</div>
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Planes de crecimiento 30 / 60 / 90 días</span>
+</div>
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Sistema para conseguir clientes</span>
+</div>
+
+<div class="value-item">
+<div class="value-check">✓</div>
+<span>Guardar y copiar resultados</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="price-card">
+
 <div class="price">
 4,99 € <small>/ mes</small>
+</div>
+
+<div class="price-description">
+Cancela cuando quieras
 </div>
 
 <button class="primary" onclick="activateDemoPremium()">
@@ -1379,15 +1742,258 @@ El centro de herramientas avanzado para crear, lanzar y hacer crecer un negocio.
 </button>
 
 <div class="demo-note">
-Modo DEMO durante las pruebas. El pago real se añadirá posteriormente.
+Modo DEMO durante las pruebas.
+El pago real se añadirá posteriormente.
 </div>
+
+</div>
+
+</div>
+
+
+<!-- HERRAMIENTAS -->
+
+<div class="premium-section-title">
+
+<h3>🚀 Herramientas incluidas</h3>
+
+<p>Todo en un mismo lugar.</p>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+<span class="feature-icon">🚀</span>
+<strong>Business Builder</strong>
+<small>Construye un negocio completo.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">📱</span>
+<strong>Social Media Pro</strong>
+<small>Estrategia de redes durante 30 días.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">📊</span>
+<strong>Análisis de competencia</strong>
+<small>Detecta oportunidades.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">🎯</span>
+<strong>Cliente ideal</strong>
+<small>Descubre a quién vender.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">💰</span>
+<strong>Beneficios</strong>
+<small>Analiza rentabilidad y escenarios.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">📢</span>
+<strong>Campañas</strong>
+<small>Crea campañas completas.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">📝</span>
+<strong>Contenido</strong>
+<small>Genera contenido para vender.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">🗓️</span>
+<strong>Planes 30/60/90</strong>
+<small>Organiza tu crecimiento.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">🤝</span>
+<strong>Conseguir clientes</strong>
+<small>Encuentra tus primeros clientes.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">📈</span>
+<strong>Crecimiento</strong>
+<small>Escala tu negocio.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">💾</span>
+<strong>Guardar resultados</strong>
+<small>Conserva tus estrategias.</small>
+</div>
+
+<div class="feature">
+<span class="feature-icon">📋</span>
+<strong>Copiar resultados</strong>
+<small>Utiliza las respuestas donde quieras.</small>
+</div>
+
+</div>
+
+
+<!-- CTA -->
+
+<div class="premium-cta">
+
+<div class="premium-cta-text">
+
+<h3>🔥 ¿Listo para empezar?</h3>
+
+<p>
+Prueba todas las funciones Premium y descubre lo que puede hacer Business AI.
+</p>
+
+</div>
+
+<button class="primary" onclick="activateDemoPremium()">
+🚀 Activar Premium
+</button>
+
+</div>
+
+
+<!-- CONFIANZA -->
+
+<div class="trust-row">
+
+<div class="trust-card">
+
+<div class="trust-icon">⚡</div>
+
+<strong>Rápido</strong>
+
+<span>Resultados generados por IA</span>
+
+</div>
+
+<div class="trust-card">
+
+<div class="trust-icon">🧠</div>
+
+<strong>Práctico</strong>
+
+<span>Respuestas pensadas para actuar</span>
+
+</div>
+
+<div class="trust-card">
+
+<div class="trust-icon">🔒</div>
+
+<strong>Sin complicaciones</strong>
+
+<span>Todo desde una sola plataforma</span>
+
+</div>
+
+</div>
+
+
+<!-- FAQ -->
+
+<div class="faq">
+
+<h3>❓ Preguntas frecuentes</h3>
+
+
+<div class="faq-item">
+
+<button class="faq-question" onclick="toggleFAQ(this)">
+<span>¿Qué incluye Business AI Premium?</span>
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Premium desbloquea las 10 herramientas avanzadas,
+las generaciones ilimitadas y funciones como guardar
+y copiar tus resultados.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question" onclick="toggleFAQ(this)">
+<span>¿Puedo probarlo antes de pagar?</span>
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Sí. Durante esta fase de desarrollo puedes activar el
+modo DEMO para probar las funciones Premium.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question" onclick="toggleFAQ(this)">
+<span>¿Las respuestas las genera una IA?</span>
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Sí. Business AI utiliza inteligencia artificial para
+crear estrategias, ideas, contenido y análisis adaptados
+a la información que introduces.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question" onclick="toggleFAQ(this)">
+<span>¿Cuánto cuesta Premium?</span>
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+El precio mostrado actualmente es de 4,99 € al mes.
+El sistema de pago real todavía no está conectado.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question" onclick="toggleFAQ(this)">
+<span>¿Puedo guardar mis resultados?</span>
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Sí. Las funciones Premium permiten guardar resultados
+en el navegador y copiarlos fácilmente.
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SAVED -->
 
 <div class="saved-box">
 
 <h3>💾 Resultados guardados</h3>
 
 <div id="savedResults">
-<div class="empty">Todavía no tienes resultados guardados.</div>
+
+<div class="empty">
+Todavía no tienes resultados guardados.
+</div>
+
 </div>
 
 </div>
@@ -1764,6 +2370,20 @@ function openPremium(){
     top:0,
     behavior:"smooth"
   });
+
+}
+
+
+/* =========================
+FAQ
+========================= */
+
+function toggleFAQ(button){
+
+  const item =
+    button.parentElement;
+
+  item.classList.toggle("open");
 
 }
 
