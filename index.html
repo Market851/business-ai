@@ -2033,6 +2033,27 @@ function isPremium(){
     "businessAI_premium"
   ) === "true";
 
+}async function activatePremiumWithEmail(){
+
+  const email = prompt("Escriu el correu que has utilitzat per pagar:");
+
+  if(!email) return;
+
+  const premium = await checkPremium(email);
+
+  if(premium){
+
+    showToast("🚀 Premium activat!");
+
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+
+  }else{
+
+    showToast("❌ Aquest correu encara no té Premium.");
+
+  }
 }
 
 function updatePlan(){
