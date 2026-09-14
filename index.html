@@ -569,6 +569,27 @@ Calcula precios de venta, beneficios y márgenes.
 </div>
 
 
+<!-- NUEVO BUSINESS BUILDER -->
+
+<div class="card premium-card" onclick="openTool('builder')">
+
+<span class="badge">
+⭐ PREMIUM
+</span>
+
+<div class="icon">🚀</div>
+
+<h3>
+Business Builder
+</h3>
+
+<p>
+Construye tu negocio paso a paso con un plan completo creado por IA.
+</p>
+
+</div>
+
+
 <div class="card premium-card" onclick="openPremium()">
 
 <span class="badge">
@@ -765,6 +786,47 @@ placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."
 </button>
 
 <div id="pricesResult" class="result"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     NUEVO BUSINESS BUILDER
+========================= -->
+
+<section id="builder" class="page">
+
+<button class="back" onclick="goHome()">
+← Volver
+</button>
+
+<div class="tool-box">
+
+<span class="badge">
+⭐ PREMIUM
+</span>
+
+<h2 class="tool-title">
+🚀 Business Builder
+</h2>
+
+<p class="tool-description">
+Cuéntame tu situación y la IA construirá un plan de negocio completo,
+realista y paso a paso para ti.
+</p>
+
+<textarea
+id="builderInput"
+placeholder="Ejemplo: Tengo 200 €, sé editar vídeos y quiero empezar un negocio online. Vivo en España y quiero conseguir mis primeros clientes rápidamente."
+></textarea>
+
+<button class="primary" onclick="runAI('builder')">
+🚀 Crear mi negocio
+</button>
+
+<div id="builderResult" class="result"></div>
 
 </div>
 
@@ -1231,6 +1293,57 @@ function getInstruction(tool){
   }
 
 
+  /* =========================
+     BUSINESS BUILDER
+  ========================= */
+
+  if(tool === "builder"){
+
+    return base +
+      "Actúa como un experto en creación y estrategia de negocios online. " +
+      "El usuario quiere construir un negocio real desde su situación actual. " +
+      "Analiza cuidadosamente su presupuesto, habilidades, recursos, objetivos " +
+      "y limitaciones. No inventes información que no haya dado el usuario. " +
+      "Si falta algún dato importante, haz una suposición razonable y aclárala. " +
+      "Crea un plan práctico y realista dividido EXACTAMENTE en estas 10 secciones:\n\n" +
+
+      "1. 💡 IDEA DE NEGOCIO\n" +
+      "Explica cuál es el negocio recomendado y por qué encaja con el usuario.\n\n" +
+
+      "2. 🎯 CLIENTE IDEAL\n" +
+      "Explica quién sería el cliente, qué necesita y por qué compraría.\n\n" +
+
+      "3. 📦 PRODUCTO O SERVICIO\n" +
+      "Explica exactamente qué vendería el usuario y qué recibiría el cliente.\n\n" +
+
+      "4. 💰 PRECIOS Y BENEFICIOS\n" +
+      "Propón precios razonables y explica costes, beneficio aproximado y margen " +
+      "cuando sea posible. No inventes costes específicos si no hay información suficiente.\n\n" +
+
+      "5. 🔎 COMPETENCIA\n" +
+      "Explica qué tipos de competidores puede encontrar y cómo diferenciarse.\n\n" +
+
+      "6. 📢 ESTRATEGIA DE PUBLICIDAD\n" +
+      "Explica cómo promocionar el negocio con poco o ningún presupuesto.\n\n" +
+
+      "7. 📱 TIKTOK E INSTAGRAM\n" +
+      "Propón una estrategia de contenido, tipos de vídeos, hooks y frecuencia.\n\n" +
+
+      "8. 🤝 PRIMEROS CLIENTES\n" +
+      "Explica métodos concretos para conseguir los primeros clientes.\n\n" +
+
+      "9. 🗓️ PLAN DE 30 DÍAS\n" +
+      "Crea un plan dividido por semanas con acciones concretas.\n\n" +
+
+      "10. 🚀 PRÓXIMOS PASOS\n" +
+      "Indica exactamente qué debería hacer el usuario hoy, mañana y durante los próximos días.\n\n" +
+
+      "Sé especialmente práctico. Evita frases genéricas como 'trabaja duro' o 'usa las redes sociales'. " +
+      "Da acciones concretas que el usuario pueda realizar.";
+
+  }
+
+
   return base;
 
 }
@@ -1241,6 +1354,21 @@ function getInstruction(tool){
 ========================= */
 
 async function runAI(tool){
+
+  /* BUSINESS BUILDER ES PREMIUM */
+
+  if(tool === "builder" && !isPremium()){
+
+    alert(
+      "⭐ Business Builder es una función Premium.\n\nActiva Premium para utilizar esta herramienta."
+    );
+
+    openPremium();
+
+    return;
+
+  }
+
 
   if(!canUseAI()){
 
