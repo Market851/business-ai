@@ -1917,6 +1917,26 @@ function buyPremium(){
 
   },300);
 
+}async function checkPremium(email) {
+  const response = await fetch(
+    "https://buusinessai.khalilidrissibachiri.workers.dev/check-premium",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    }
+  );
+
+  const data = await response.json();
+
+  if (data.premium === true) {
+    localStorage.setItem("businessAI_premium", "true");
+    return true;
+  }
+
+  return false;
 }
 
 
