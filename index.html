@@ -7,6 +7,7 @@
 <title>Business AI</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -42,6 +43,12 @@ header{
     color:#6c63ff;
 }
 
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
 .language{
     background:#111827;
     color:white;
@@ -49,6 +56,16 @@ header{
     padding:9px 12px;
     border-radius:10px;
     cursor:pointer;
+}
+
+.plan{
+    background:#15122b;
+    color:#c5bdff;
+    border:1px solid #5146b9;
+    padding:8px 12px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:bold;
 }
 
 .container{
@@ -91,6 +108,42 @@ header{
     line-height:1.6;
 }
 
+.usage-box{
+    max-width:500px;
+    margin:0 auto 50px;
+    background:#0e1422;
+    border:1px solid #252e42;
+    border-radius:15px;
+    padding:18px;
+    text-align:center;
+}
+
+.usage-title{
+    color:#9da5b8;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.usage-count{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.usage-bar{
+    height:7px;
+    background:#20283a;
+    border-radius:20px;
+    margin-top:12px;
+    overflow:hidden;
+}
+
+.usage-progress{
+    height:100%;
+    width:0%;
+    background:#6c63ff;
+    transition:.3s;
+}
+
 .section-title{
     text-align:center;
     font-size:30px;
@@ -111,6 +164,7 @@ header{
     padding:28px;
     cursor:pointer;
     transition:.25s;
+    position:relative;
 }
 
 .card:hover{
@@ -132,6 +186,19 @@ header{
 .card p{
     color:#8e98ab;
     line-height:1.5;
+}
+
+.card-tag{
+    position:absolute;
+    top:16px;
+    right:16px;
+    background:#171333;
+    border:1px solid #5044a5;
+    color:#c5bdff;
+    padding:5px 8px;
+    border-radius:7px;
+    font-size:11px;
+    font-weight:bold;
 }
 
 .premium{
@@ -175,6 +242,18 @@ header{
     padding:10px 15px;
     border-radius:10px;
     color:#d6d8e5;
+}
+
+.premium-price{
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.premium-price span{
+    font-size:14px;
+    color:#858da0;
+    font-weight:normal;
 }
 
 .premium-button{
@@ -284,19 +363,59 @@ textarea:focus{
     color:#aaa6ff;
 }
 
-.locked{
-    position:relative;
+.premium-page{
+    display:none;
+    padding:65px 20px;
+    min-height:calc(100vh - 70px);
 }
 
-.lock{
-    position:absolute;
-    top:18px;
-    right:18px;
-    background:#282347;
-    color:#c9c3ff;
-    padding:5px 9px;
-    border-radius:8px;
-    font-size:12px;
+.premium-page-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.premium-page-box h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.premium-page-box>p{
+    color:#929bad;
+    line-height:1.6;
+    margin-bottom:35px;
+}
+
+.premium-tools{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    text-align:left;
+}
+
+.premium-tool{
+    background:#0e1422;
+    border:1px solid #30394d;
+    border-radius:16px;
+    padding:22px;
+}
+
+.premium-tool h3{
+    margin-bottom:8px;
+}
+
+.premium-tool p{
+    color:#8e98ab;
+    line-height:1.5;
+}
+
+.premium-note{
+    margin-top:30px;
+    background:#151333;
+    border:1px solid #5146b9;
+    padding:20px;
+    border-radius:14px;
+    color:#c7c2ff;
 }
 
 footer{
@@ -317,8 +436,16 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .premium-tools{
+        grid-template-columns:1fr;
+    }
+
     header{
         padding:0 5%;
+    }
+
+    .logo{
+        font-size:20px;
     }
 
     .premium{
@@ -328,11 +455,17 @@ footer{
     .premium h2{
         font-size:27px;
     }
+
+    .plan{
+        display:none;
+    }
 }
+
 </style>
 </head>
 
 <body>
+
 
 <header>
 
@@ -340,12 +473,20 @@ footer{
         Business <span>AI</span>
     </div>
 
-    <select id="language" class="language" onchange="changeLanguage()">
-        <option value="es">🇪🇸 Español</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="de">🇩🇪 Deutsch</option>
-    </select>
+    <div class="header-right">
+
+        <div id="planBadge" class="plan">
+            🆓 FREE
+        </div>
+
+        <select id="language" class="language" onchange="changeLanguage()">
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+        </select>
+
+    </div>
 
 </header>
 
@@ -375,71 +516,121 @@ footer{
 
 <div class="container">
 
+
+<!-- USOS GRATIS -->
+
+<div class="usage-box">
+
+    <div class="usage-title">
+        🆓 Generaciones gratuitas
+    </div>
+
+    <div id="usageCount" class="usage-count">
+        5 / 5 disponibles
+    </div>
+
+    <div class="usage-bar">
+        <div id="usageProgress" class="usage-progress"></div>
+    </div>
+
+</div>
+
+
 <h2 class="section-title">
     🛠️ Herramientas
 </h2>
 
+
 <div class="tools">
 
+
     <div class="card" onclick="openTool('assistant')">
+
         <div class="card-icon">🤖</div>
+
         <h3>Asistente Business AI</h3>
+
         <p>
             Pregunta cualquier cosa sobre negocios y recibe
             respuestas prácticas de la IA.
         </p>
+
     </div>
 
 
     <div class="card" onclick="openTool('ideas')">
+
         <div class="card-icon">💡</div>
+
         <h3>Ideas de negocio</h3>
+
         <p>
             Encuentra ideas de negocio adaptadas a tu situación
             y aprende cómo empezar.
         </p>
+
     </div>
 
 
     <div class="card" onclick="openTool('social')">
+
         <div class="card-icon">📱</div>
+
         <h3>Posts TikTok / Instagram</h3>
+
         <p>
             Genera ideas y guiones para crear contenido
             que consiga visitas.
         </p>
+
     </div>
 
 
     <div class="card" onclick="openTool('ads')">
+
         <div class="card-icon">📢</div>
+
         <h3>Generador de anuncios</h3>
+
         <p>
             Crea anuncios profesionales para tus productos
             y servicios.
         </p>
+
     </div>
 
 
     <div class="card" onclick="openTool('prices')">
+
         <div class="card-icon">💰</div>
+
         <h3>Precios y beneficios</h3>
+
         <p>
             Calcula rápidamente cuánto cobrar y cuánto
             puedes ganar con un producto.
         </p>
+
     </div>
 
 
-    <div class="card locked" onclick="premiumMessage()">
-        <div class="lock">PREMIUM</div>
+    <div class="card" onclick="openPremium()">
+
+        <div class="card-tag">
+            ⭐ PREMIUM
+        </div>
+
         <div class="card-icon">🚀</div>
+
         <h3>Plan de negocio completo</h3>
+
         <p>
             Crea un plan completo para lanzar y hacer crecer
             tu negocio.
         </p>
+
     </div>
+
 
 </div>
 
@@ -453,26 +644,33 @@ footer{
     </div>
 
     <h2>
-        Lleva tus negocios al siguiente nivel
+        Más herramientas. Más posibilidades.
     </h2>
 
     <p>
-        Accede a herramientas avanzadas para crear negocios,
-        campañas y estrategias completas utilizando inteligencia artificial.
+        Desbloquea herramientas avanzadas de IA diseñadas
+        para ayudarte a construir y hacer crecer un negocio.
     </p>
+
 
     <div class="premium-features">
 
         <div class="feature">🚀 Planes de negocio</div>
-        <div class="feature">📊 Estrategias avanzadas</div>
-        <div class="feature">🎯 Marketing</div>
+        <div class="feature">📊 Análisis avanzados</div>
+        <div class="feature">🎯 Estrategias de clientes</div>
+        <div class="feature">📢 Campañas completas</div>
         <div class="feature">💰 Análisis de beneficios</div>
-        <div class="feature">⚡ Más generaciones</div>
 
     </div>
 
-    <button class="premium-button" onclick="premiumMessage()">
-        ⭐ Próximamente Premium
+
+    <div class="premium-price">
+        4,99 € <span>/ mes</span>
+    </div>
+
+
+    <button class="premium-button" onclick="activateDemoPremium()">
+        ⭐ Probar Premium
     </button>
 
 </section>
@@ -667,6 +865,119 @@ placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."
 </section>
 
 
+<!-- ================= PREMIUM ================= -->
+
+<section id="premiumPage" class="premium-page">
+
+<div class="premium-page-box">
+
+<button class="back-button" onclick="goHome()">
+    ← Volver
+</button>
+
+<h1>
+    ⭐ Business AI Premium
+</h1>
+
+<p>
+    Herramientas avanzadas para llevar una idea
+    desde cero hasta una estrategia de negocio.
+</p>
+
+
+<div class="premium-tools">
+
+
+<div class="premium-tool">
+
+<h3>🚀 Plan de negocio completo</h3>
+
+<p>
+Crea una estrategia completa para lanzar tu negocio,
+incluyendo modelo, clientes, marketing y pasos iniciales.
+</p>
+
+</div>
+
+
+<div class="premium-tool">
+
+<h3>📊 Análisis de negocio</h3>
+
+<p>
+Analiza puntos fuertes, debilidades, oportunidades,
+riesgos y posibles mejoras.
+</p>
+
+</div>
+
+
+<div class="premium-tool">
+
+<h3>🎯 Estrategia de clientes</h3>
+
+<p>
+Descubre cómo encontrar tus primeros clientes y
+qué estrategias puedes utilizar para conseguir ventas.
+</p>
+
+</div>
+
+
+<div class="premium-tool">
+
+<h3>📱 Contenido avanzado</h3>
+
+<p>
+Genera calendarios de contenido, hooks, guiones,
+ideas para vídeos y llamadas a la acción.
+</p>
+
+</div>
+
+
+<div class="premium-tool">
+
+<h3>📢 Campañas completas</h3>
+
+<p>
+Crea campañas publicitarias completas para promocionar
+productos o servicios.
+</p>
+
+</div>
+
+
+<div class="premium-tool">
+
+<h3>💰 Análisis de beneficios</h3>
+
+<p>
+Analiza costes, precios, márgenes y diferentes escenarios
+de beneficio.
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="premium-note">
+
+⭐ <strong>Premium Demo activado.</strong><br><br>
+
+Aquesta versió és una demostració del sistema Premium.
+El següent pas serà connectar comptes d'usuari i
+pagaments reals.
+
+</div>
+
+</div>
+
+</section>
+
+
 <footer>
     © 2026 Business AI · Herramientas inteligentes para emprendedores
 </footer>
@@ -674,8 +985,155 @@ placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."
 
 <script>
 
+
+/* ================= CONFIGURACIÓN ================= */
+
 const WORKER_URL =
 "https://buusinessai.khalilidrissibachiri.workers.dev/";
+
+const FREE_LIMIT = 5;
+
+
+/* ================= ESTADO PREMIUM ================= */
+
+function isPremium(){
+
+    return localStorage.getItem("businessAI_premium")==="true";
+
+}
+
+
+function activateDemoPremium(){
+
+    const confirmDemo =
+    confirm(
+        "⭐ Activar Premium Demo?\n\n" +
+        "Esto es solo una demostración para probar cómo funcionará Premium."
+    );
+
+    if(confirmDemo){
+
+        localStorage.setItem(
+            "businessAI_premium",
+            "true"
+        );
+
+        updatePlan();
+
+        alert(
+            "⭐ Premium Demo activado correctamente."
+        );
+
+        openPremium();
+    }
+
+}
+
+
+function updatePlan(){
+
+    const badge =
+    document.getElementById("planBadge");
+
+    const usageBox =
+    document.querySelector(".usage-box");
+
+    if(isPremium()){
+
+        badge.innerText="⭐ PREMIUM";
+
+        if(usageBox){
+            usageBox.style.display="none";
+        }
+
+    }else{
+
+        badge.innerText="🆓 FREE";
+
+        if(usageBox){
+            usageBox.style.display="block";
+        }
+
+    }
+
+}
+
+
+/* ================= USOS GRATIS ================= */
+
+function getUsage(){
+
+    return parseInt(
+        localStorage.getItem("businessAI_usage") || "0"
+    );
+
+}
+
+
+function increaseUsage(){
+
+    const newUsage =
+    getUsage()+1;
+
+    localStorage.setItem(
+        "businessAI_usage",
+        newUsage
+    );
+
+    updateUsage();
+
+}
+
+
+function updateUsage(){
+
+    const count =
+    document.getElementById("usageCount");
+
+    const progress =
+    document.getElementById("usageProgress");
+
+    if(!count || !progress) return;
+
+    const used =
+    getUsage();
+
+    const remaining =
+    Math.max(0,FREE_LIMIT-used);
+
+    count.innerText =
+    remaining+" / "+FREE_LIMIT+" disponibles";
+
+    const percentage =
+    Math.min(100,(used/FREE_LIMIT)*100);
+
+    progress.style.width =
+    percentage+"%";
+
+}
+
+
+/* ================= COMPROBAR USO ================= */
+
+function canUseAI(){
+
+    if(isPremium()){
+        return true;
+    }
+
+    if(getUsage()>=FREE_LIMIT){
+
+        alert(
+            "🆓 Has utilizado tus 5 generaciones gratuitas.\n\n" +
+            "⭐ Pasa a Premium para seguir utilizando Business AI."
+        );
+
+        return false;
+    }
+
+    return true;
+
+}
 
 
 /* ================= NAVEGACIÓN ================= */
@@ -683,6 +1141,8 @@ const WORKER_URL =
 function openTool(tool){
 
     document.getElementById("home").style.display="none";
+
+    document.getElementById("premiumPage").style.display="none";
 
     document.querySelectorAll(".tool-page").forEach(page=>{
         page.style.display="none";
@@ -694,6 +1154,25 @@ function openTool(tool){
         top:0,
         behavior:"smooth"
     });
+
+}
+
+
+function openPremium(){
+
+    document.getElementById("home").style.display="none";
+
+    document.querySelectorAll(".tool-page").forEach(page=>{
+        page.style.display="none";
+    });
+
+    document.getElementById("premiumPage").style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 }
 
 
@@ -703,12 +1182,15 @@ function goHome(){
         page.style.display="none";
     });
 
+    document.getElementById("premiumPage").style.display="none";
+
     document.getElementById("home").style.display="block";
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
 }
 
 
@@ -716,41 +1198,82 @@ function goHome(){
 
 async function askAI(type){
 
-    let input;
-    let result;
-
-    if(type==="assistant"){
-        input=document.getElementById("assistantInput");
-        result=document.getElementById("assistantResult");
-    }
-
-    if(type==="ideas"){
-        input=document.getElementById("ideasInput");
-        result=document.getElementById("ideasResult");
-    }
-
-    if(type==="social"){
-        input=document.getElementById("socialInput");
-        result=document.getElementById("socialResult");
-    }
-
-    if(type==="ads"){
-        input=document.getElementById("adsInput");
-        result=document.getElementById("adsResult");
-    }
-
-    const text=input.value.trim();
-
-    if(!text){
-        result.style.display="block";
-        result.innerText="⚠️ Escribe algo primero.";
+    if(!canUseAI()){
         return;
     }
 
+
+    let input;
+    let result;
+
+
+    if(type==="assistant"){
+
+        input=
+        document.getElementById("assistantInput");
+
+        result=
+        document.getElementById("assistantResult");
+
+    }
+
+
+    if(type==="ideas"){
+
+        input=
+        document.getElementById("ideasInput");
+
+        result=
+        document.getElementById("ideasResult");
+
+    }
+
+
+    if(type==="social"){
+
+        input=
+        document.getElementById("socialInput");
+
+        result=
+        document.getElementById("socialResult");
+
+    }
+
+
+    if(type==="ads"){
+
+        input=
+        document.getElementById("adsInput");
+
+        result=
+        document.getElementById("adsResult");
+
+    }
+
+
+    const text=
+    input.value.trim();
+
+
+    if(!text){
+
+        result.style.display="block";
+
+        result.innerText=
+        "⚠️ Escribe algo primero.";
+
+        return;
+    }
+
+
     result.style.display="block";
-    result.innerHTML='<div class="loading">🤖 La IA está pensando...</div>';
+
+    result.innerHTML=
+    '<div class="loading">🤖 La IA está pensando...</div>';
+
 
     let instruction="";
+
 
     if(type==="assistant"){
 
@@ -833,7 +1356,9 @@ Producto:
 
     try{
 
-        const response=await fetch(WORKER_URL,{
+        const response=
+        await fetch(WORKER_URL,{
+
             method:"POST",
 
             headers:{
@@ -841,38 +1366,70 @@ Producto:
             },
 
             body:JSON.stringify({
-                message:instruction+text
+
+                message:
+                instruction+text
+
             })
+
         });
 
 
-        const data=await response.json();
+        const data=
+        await response.json();
+
 
         if(data.response){
 
-            result.innerText=data.response;
+            result.innerText=
+            data.response;
 
         }else if(data.result){
 
-            result.innerText=data.result;
+            result.innerText=
+            data.result;
 
         }else if(data.error){
 
-            result.innerText="❌ "+data.error;
+            result.innerText=
+            "❌ "+data.error;
 
         }else{
 
-            result.innerText="❌ No se ha podido obtener una respuesta.";
+            result.innerText=
+            "❌ No se ha podido obtener una respuesta.";
 
         }
+
+
+        /*
+        Solo gastamos una generación
+        si la petición ha funcionado.
+        */
+
+        if(
+            data.response ||
+            data.result
+        ){
+
+            if(!isPremium()){
+
+                increaseUsage();
+
+            }
+
+        }
+
 
     }catch(error){
 
         result.innerText=
-        "❌ Error de conexión con la IA. Comprueba que el Worker esté funcionando.";
+        "❌ Error de conexión con la IA.";
 
         console.error(error);
+
     }
+
 }
 
 
@@ -880,14 +1437,24 @@ Producto:
 
 function calculatePrice(){
 
+    if(!canUseAI()){
+        return;
+    }
+
+
     const input=
     document.getElementById("pricesInput").value;
+
 
     const result=
     document.getElementById("pricesResult");
 
+
     const match=
-    input.replace(",",".").match(/(\d+(\.\d+)?)/);
+    input
+    .replace(",",".")
+    .match(/(\d+(\.\d+)?)/);
+
 
     if(!match){
 
@@ -897,21 +1464,28 @@ function calculatePrice(){
         "⚠️ Escribe un precio. Ejemplo: Mi producto me cuesta 10 €.";
 
         return;
+
     }
+
 
     const cost=
     parseFloat(match[1]);
 
+
     const price=
     cost*2;
+
 
     const profit=
     price-cost;
 
+
     const margin=
     (profit/price)*100;
 
+
     result.style.display="block";
+
 
     result.innerHTML=`
 
@@ -924,46 +1498,18 @@ function calculatePrice(){
 📊 Margen aproximado: ${margin.toFixed(0)} %
 
     `;
-}
 
 
-/* ================= PREMIUM ================= */
+    if(!isPremium()){
 
-function premiumMessage(){
+        increaseUsage();
 
-    alert(
-        "⭐ Business AI Premium estará disponible próximamente.\n\n" +
-        "Estamos preparando herramientas más avanzadas."
-    );
+    }
+
 }
 
 
 /* ================= IDIOMAS ================= */
-
-const translations={
-
-    es:{
-        hero:"Convierte tus ideas en",
-        tools:"🛠️ Herramientas"
-    },
-
-    en:{
-        hero:"Turn your ideas into",
-        tools:"🛠️ Tools"
-    },
-
-    fr:{
-        hero:"Transformez vos idées en",
-        tools:"🛠️ Outils"
-    },
-
-    de:{
-        hero:"Verwandle deine Ideen in",
-        tools:"🛠️ Tools"
-    }
-
-};
-
 
 function changeLanguage(){
 
@@ -975,11 +1521,6 @@ function changeLanguage(){
         lang
     );
 
-    /*
-    La IA ya detecta automáticamente
-    el idioma utilizado en el mensaje.
-    */
-
 }
 
 
@@ -988,38 +1529,63 @@ function changeLanguage(){
 function detectLanguage(){
 
     const saved=
-    localStorage.getItem("businessAI_language");
+    localStorage.getItem(
+        "businessAI_language"
+    );
+
 
     if(saved){
 
-        document.getElementById("language").value=saved;
+        document.getElementById(
+            "language"
+        ).value=saved;
 
         return;
+
     }
+
 
     const browser=
     navigator.language.toLowerCase();
 
+
     if(browser.startsWith("en")){
 
-        document.getElementById("language").value="en";
+        document.getElementById(
+            "language"
+        ).value="en";
 
     }else if(browser.startsWith("fr")){
 
-        document.getElementById("language").value="fr";
+        document.getElementById(
+            "language"
+        ).value="fr";
 
     }else if(browser.startsWith("de")){
 
-        document.getElementById("language").value="de";
+        document.getElementById(
+            "language"
+        ).value="de";
 
     }else{
 
-        document.getElementById("language").value="es";
+        document.getElementById(
+            "language"
+        ).value="es";
+
     }
+
 }
 
 
+/* ================= INICIO ================= */
+
 detectLanguage();
+
+updatePlan();
+
+updateUsage();
+
 
 </script>
 
