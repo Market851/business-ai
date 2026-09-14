@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Business AI</title>
 
 <style>
@@ -34,7 +35,6 @@ header{
 .logo{
   font-size:23px;
   font-weight:800;
-  color:#111827;
 }
 
 .logo span{
@@ -313,6 +313,7 @@ footer{
 }
 
 @media(max-width:700px){
+
   .tools{
     grid-template-columns:1fr;
   }
@@ -347,9 +348,13 @@ footer{
 <body>
 
 <header>
-  <div class="logo">Business <span>AI</span></div>
+
+  <div class="logo">
+    Business <span>AI</span>
+  </div>
 
   <div class="header-right">
+
     <select id="language" onchange="changeLanguage()">
       <option value="es">🇪🇸 Español</option>
       <option value="en">🇬🇧 English</option>
@@ -357,74 +362,166 @@ footer{
       <option value="de">🇩🇪 Deutsch</option>
     </select>
 
-    <div class="plan" id="planBadge">🆓 FREE</div>
+    <div class="plan" id="planBadge">
+      🆓 FREE
+    </div>
+
   </div>
+
 </header>
+
 
 <main>
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <section id="home" class="page active">
 
   <div class="hero">
-    <h1>Tu negocio empieza con <span>IA</span></h1>
+
+    <h1>
+      Tu negocio empieza con <span>IA</span>
+    </h1>
+
     <p>
       Herramientas de inteligencia artificial para crear ideas,
       contenido, anuncios y estrategias para tu negocio.
     </p>
+
   </div>
 
+
   <div class="usage" id="usageBox">
+
     <div class="usage-top">
+
       <span>🆓 Uso gratuito</span>
-      <span id="usageText">Pruebas ilimitadas</span>
+
+      <span id="usageText">
+        5 / 5 disponibles
+      </span>
+
     </div>
 
     <div class="progress">
-      <div class="progress-bar" id="progressBar"></div>
+
+      <div
+        class="progress-bar"
+        id="progressBar">
+      </div>
+
     </div>
+
   </div>
+
 
   <div class="tools">
 
-    <div class="card" onclick="openTool('assistant')">
+
+    <div
+      class="card"
+      onclick="openTool('assistant')">
+
       <div class="icon">🤖</div>
-      <h3>Asistente Business AI</h3>
-      <p>Pregunta cualquier cosa relacionada con tu negocio y recibe una respuesta de IA.</p>
-    </div>
 
-    <div class="card" onclick="openTool('ideas')">
-      <div class="icon">💡</div>
-      <h3>Ideas de negocio</h3>
-      <p>Descubre ideas de negocio adaptadas a tu presupuesto, habilidades y objetivos.</p>
-    </div>
+      <h3>
+        Asistente Business AI
+      </h3>
 
-    <div class="card" onclick="openTool('social')">
-      <div class="icon">📱</div>
-      <h3>Posts TikTok / Instagram</h3>
-      <p>Crea ideas, guiones y contenido para redes sociales.</p>
-    </div>
-
-    <div class="card" onclick="openTool('ads')">
-      <div class="icon">📢</div>
-      <h3>Generador de anuncios</h3>
-      <p>Crea anuncios persuasivos para tus productos o servicios.</p>
-    </div>
-
-    <div class="card" onclick="openTool('prices')">
-      <div class="icon">💰</div>
-      <h3>Precios y beneficios</h3>
-      <p>Calcula precios de venta, beneficios y márgenes.</p>
-    </div>
-
-    <div class="card premium-card" onclick="openPremium()">
-      <span class="badge">⭐ PREMIUM</span>
-      <h3>🚀 Plan de negocio completo</h3>
       <p>
-        Crea un plan completo para tu negocio, analiza clientes,
-        competencia, marketing y beneficios.
+        Pregunta cualquier cosa relacionada con tu negocio
+        y recibe una respuesta de IA.
       </p>
+
+    </div>
+
+
+    <div
+      class="card"
+      onclick="openTool('ideas')">
+
+      <div class="icon">💡</div>
+
+      <h3>
+        Ideas de negocio
+      </h3>
+
+      <p>
+        Descubre ideas de negocio adaptadas a tu presupuesto,
+        habilidades y objetivos.
+      </p>
+
+    </div>
+
+
+    <div
+      class="card"
+      onclick="openTool('social')">
+
+      <div class="icon">📱</div>
+
+      <h3>
+        Posts TikTok / Instagram
+      </h3>
+
+      <p>
+        Crea ideas, guiones y contenido para redes sociales.
+      </p>
+
+    </div>
+
+
+    <div
+      class="card"
+      onclick="openTool('ads')">
+
+      <div class="icon">📢</div>
+
+      <h3>
+        Generador de anuncios
+      </h3>
+
+      <p>
+        Crea anuncios persuasivos para tus productos o servicios.
+      </p>
+
+    </div>
+
+
+    <div
+      class="card"
+      onclick="openTool('prices')">
+
+      <div class="icon">💰</div>
+
+      <h3>
+        Precios y beneficios
+      </h3>
+
+      <p>
+        Calcula precios de venta, beneficios y márgenes.
+      </p>
+
+    </div>
+
+
+    <div
+      class="card premium-card"
+      onclick="openPremium()">
+
+      <span class="badge">
+        ⭐ PREMIUM
+      </span>
+
+      <h3>
+        🚀 Plan de negocio completo
+      </h3>
+
+      <p>
+        Crea un plan completo para tu negocio,
+        analiza clientes, competencia, marketing y beneficios.
+      </p>
+
     </div>
 
   </div>
@@ -432,189 +529,292 @@ footer{
 </section>
 
 
-<!-- ASSISTANT -->
+<!-- ================= ASSISTANT ================= -->
 
 <section id="assistant" class="page">
 
-  <button class="back" onclick="goHome()">← Volver</button>
+  <button
+    class="back"
+    onclick="goHome()">
+    ← Volver
+  </button>
 
   <div class="tool-box">
-    <h2 class="tool-title">🤖 Asistente Business AI</h2>
+
+    <h2 class="tool-title">
+      🤖 Asistente Business AI
+    </h2>
 
     <p class="tool-description">
-      Pregunta lo que quieras sobre negocios, ventas, marketing o ideas.
+      Pregunta lo que quieras sobre negocios,
+      ventas, marketing o ideas.
     </p>
 
-    <textarea id="assistantInput"
-      placeholder="Ejemplo: Tengo 100 € y quiero empezar un negocio online. ¿Qué me recomiendas?"></textarea>
+    <textarea
+      id="assistantInput"
+      placeholder="Ejemplo: Tengo 100 € y quiero empezar un negocio online. ¿Qué me recomiendas?">
+    </textarea>
 
-    <button class="primary" onclick="runAI('assistant')">
+    <button
+      class="primary"
+      onclick="runAI('assistant')">
+
       ✨ Generar respuesta
+
     </button>
 
-    <div id="assistantResult" class="result"></div>
+    <div
+      id="assistantResult"
+      class="result">
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- IDEAS -->
+<!-- ================= IDEAS ================= -->
 
 <section id="ideas" class="page">
 
-  <button class="back" onclick="goHome()">← Volver</button>
+  <button
+    class="back"
+    onclick="goHome()">
+    ← Volver
+  </button>
 
   <div class="tool-box">
-    <h2 class="tool-title">💡 Ideas de negocio</h2>
+
+    <h2 class="tool-title">
+      💡 Ideas de negocio
+    </h2>
 
     <p class="tool-description">
       Cuéntame tu situación y te propondré ideas realistas.
     </p>
 
-    <textarea id="ideasInput"
-      placeholder="Ejemplo: Tengo 50 €, vivo en un pueblo pequeño, sé bastante de fútbol y quiero ganar dinero por Internet."></textarea>
+    <textarea
+      id="ideasInput"
+      placeholder="Ejemplo: Tengo 50 €, vivo en un pueblo pequeño, sé bastante de fútbol y quiero ganar dinero por Internet.">
+    </textarea>
 
-    <button class="primary" onclick="runAI('ideas')">
+    <button
+      class="primary"
+      onclick="runAI('ideas')">
+
       💡 Generar ideas
+
     </button>
 
-    <div id="ideasResult" class="result"></div>
+    <div
+      id="ideasResult"
+      class="result">
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- SOCIAL -->
+<!-- ================= SOCIAL ================= -->
 
 <section id="social" class="page">
 
-  <button class="back" onclick="goHome()">← Volver</button>
+  <button
+    class="back"
+    onclick="goHome()">
+    ← Volver
+  </button>
 
   <div class="tool-box">
-    <h2 class="tool-title">📱 TikTok / Instagram</h2>
+
+    <h2 class="tool-title">
+      📱 TikTok / Instagram
+    </h2>
 
     <p class="tool-description">
       Crea contenido atractivo para conseguir visitas y clientes.
     </p>
 
-    <textarea id="socialInput"
-      placeholder="Ejemplo: Quiero promocionar unas zapatillas de fútbol baratas. Hazme un TikTok que pueda hacerse viral."></textarea>
+    <textarea
+      id="socialInput"
+      placeholder="Ejemplo: Quiero promocionar unas zapatillas de fútbol baratas. Hazme un TikTok que pueda hacerse viral.">
+    </textarea>
 
-    <button class="primary" onclick="runAI('social')">
+    <button
+      class="primary"
+      onclick="runAI('social')">
+
       📱 Crear contenido
+
     </button>
 
-    <div id="socialResult" class="result"></div>
+    <div
+      id="socialResult"
+      class="result">
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- ADS -->
+<!-- ================= ADS ================= -->
 
 <section id="ads" class="page">
 
-  <button class="back" onclick="goHome()">← Volver</button>
+  <button
+    class="back"
+    onclick="goHome()">
+    ← Volver
+  </button>
 
   <div class="tool-box">
-    <h2 class="tool-title">📢 Generador de anuncios</h2>
+
+    <h2 class="tool-title">
+      📢 Generador de anuncios
+    </h2>
 
     <p class="tool-description">
       Crea anuncios diseñados para llamar la atención y vender.
     </p>
 
-    <textarea id="adsInput"
-      placeholder="Ejemplo: Quiero vender un masajeador de espalda por 29,99 €. Crea un anuncio que haga que la gente quiera comprarlo."></textarea>
+    <textarea
+      id="adsInput"
+      placeholder="Ejemplo: Quiero vender un masajeador de espalda por 29,99 €. Crea un anuncio que haga que la gente quiera comprarlo.">
+    </textarea>
 
-    <button class="primary" onclick="runAI('ads')">
+    <button
+      class="primary"
+      onclick="runAI('ads')">
+
       📢 Crear anuncio
+
     </button>
 
-    <div id="adsResult" class="result"></div>
+    <div
+      id="adsResult"
+      class="result">
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- PRICES -->
+<!-- ================= PRICES ================= -->
 
 <section id="prices" class="page">
 
-  <button class="back" onclick="goHome()">← Volver</button>
+  <button
+    class="back"
+    onclick="goHome()">
+    ← Volver
+  </button>
 
   <div class="tool-box">
-    <h2 class="tool-title">💰 Precios y beneficios</h2>
+
+    <h2 class="tool-title">
+      💰 Precios y beneficios
+    </h2>
 
     <p class="tool-description">
       Escribe el coste de tu producto y cómo quieres venderlo.
     </p>
 
-    <textarea id="pricesInput"
-      placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."></textarea>
+    <textarea
+      id="pricesInput"
+      placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble.">
+    </textarea>
 
-    <button class="primary" onclick="runAI('prices')">
+    <button
+      class="primary"
+      onclick="runAI('prices')">
+
       💰 Calcular
+
     </button>
 
-    <div id="pricesResult" class="result"></div>
+    <div
+      id="pricesResult"
+      class="result">
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- PREMIUM -->
+<!-- ================= PREMIUM ================= -->
 
 <section id="premium" class="page">
 
-  <button class="back" onclick="goHome()">← Volver</button>
+  <button
+    class="back"
+    onclick="goHome()">
+    ← Volver
+  </button>
 
   <div class="premium-box">
 
-    <span class="badge">⭐ PREMIUM</span>
+    <span class="badge">
+      ⭐ PREMIUM
+    </span>
 
-    <h2>Business AI Premium</h2>
+    <h2>
+      Business AI Premium
+    </h2>
 
     <p>
-      Lleva tus ideas de negocio al siguiente nivel con herramientas
-      más avanzadas.
+      Lleva tus ideas de negocio al siguiente nivel
+      con herramientas más avanzadas.
     </p>
 
+
     <div class="features">
+
 
       <div class="feature">
         🚀 <strong>Planes de negocio</strong><br>
         Crea un plan completo paso a paso.
       </div>
 
+
       <div class="feature">
         📊 <strong>Análisis avanzados</strong><br>
         Analiza fortalezas, debilidades y oportunidades.
       </div>
+
 
       <div class="feature">
         🎯 <strong>Estrategias de clientes</strong><br>
         Descubre cómo conseguir tus primeros clientes.
       </div>
 
+
       <div class="feature">
         📱 <strong>Contenido avanzado</strong><br>
         Calendarios, hooks y guiones para redes.
       </div>
+
 
       <div class="feature">
         📢 <strong>Campañas completas</strong><br>
         Crea campañas publicitarias completas.
       </div>
 
+
       <div class="feature">
         💰 <strong>Análisis de beneficios</strong><br>
         Analiza precios, costes y márgenes.
       </div>
 
+
       <div class="feature">
         🧠 <strong>Ideas personalizadas</strong><br>
         Ideas según presupuesto, habilidades y objetivos.
       </div>
+
 
       <div class="feature">
         💾 <strong>Guardar resultados</strong><br>
@@ -623,12 +823,20 @@ footer{
 
     </div>
 
+
     <div class="price">
+
       4,99 € <small>/ mes</small>
+
     </div>
 
-    <button class="primary" onclick="activateDemoPremium()">
+
+    <button
+      class="primary"
+      onclick="activateDemoPremium()">
+
       ⭐ Probar Premium
+
     </button>
 
   </div>
@@ -637,53 +845,89 @@ footer{
 
 </main>
 
+
 <footer>
-  © 2026 Business AI · Inteligencia artificial para emprendedores
+
+  © 2026 Business AI ·
+  Inteligencia artificial para emprendedores
+
 </footer>
 
 
 <script>
 
+/* =========================
+   CONFIGURACIÓN
+========================= */
+
 const WORKER_URL =
 "https://buusinessai.khalilidrissibachiri.workers.dev/";
 
+const FREE_LIMIT = 5;
+
 
 /* =========================
-   IDIOMAS
+   IDIOMA
 ========================= */
 
 function detectLanguage(){
 
-  const saved = localStorage.getItem("businessAI_language");
+  const saved =
+    localStorage.getItem("businessAI_language");
 
   if(saved){
-    document.getElementById("language").value = saved;
+
+    document.getElementById("language").value =
+      saved;
+
     return saved;
+
   }
 
-  const lang = navigator.language.toLowerCase();
+  const browserLanguage =
+    navigator.language.toLowerCase();
 
   let selected = "es";
 
-  if(lang.startsWith("en")) selected = "en";
-  else if(lang.startsWith("fr")) selected = "fr";
-  else if(lang.startsWith("de")) selected = "de";
+  if(browserLanguage.startsWith("en")){
 
-  localStorage.setItem("businessAI_language",selected);
+    selected = "en";
 
-  document.getElementById("language").value = selected;
+  }else if(browserLanguage.startsWith("fr")){
+
+    selected = "fr";
+
+  }else if(browserLanguage.startsWith("de")){
+
+    selected = "de";
+
+  }
+
+  localStorage.setItem(
+    "businessAI_language",
+    selected
+  );
+
+  document.getElementById("language").value =
+    selected;
 
   return selected;
+
 }
 
 
 function changeLanguage(){
 
-  const lang = document.getElementById("language").value;
+  const language =
+    document.getElementById("language").value;
 
-  localStorage.setItem("businessAI_language",lang);
+  localStorage.setItem(
+    "businessAI_language",
+    language
+  );
 
   location.reload();
+
 }
 
 
@@ -693,27 +937,37 @@ function changeLanguage(){
 
 function isPremium(){
 
-  return localStorage.getItem("businessAI_premium") === "true";
+  return localStorage.getItem(
+    "businessAI_premium"
+  ) === "true";
 
 }
 
 
 function updatePlan(){
 
-  const badge = document.getElementById("planBadge");
-  const usage = document.getElementById("usageBox");
+  const badge =
+    document.getElementById("planBadge");
+
+  const usageBox =
+    document.getElementById("usageBox");
+
 
   if(isPremium()){
 
-    badge.textContent = "⭐ PREMIUM";
+    badge.textContent =
+      "⭐ PREMIUM";
 
-    usage.style.display = "none";
+    usageBox.style.display =
+      "none";
 
   }else{
 
-    badge.textContent = "🆓 FREE";
+    badge.textContent =
+      "🆓 FREE";
 
-    usage.style.display = "block";
+    usageBox.style.display =
+      "block";
 
   }
 
@@ -722,7 +976,10 @@ function updatePlan(){
 
 function activateDemoPremium(){
 
-  localStorage.setItem("businessAI_premium","true");
+  localStorage.setItem(
+    "businessAI_premium",
+    "true"
+  );
 
   updatePlan();
 
@@ -736,48 +993,95 @@ function activateDemoPremium(){
 
 
 /* =========================
-   USO
+   USOS FREE
 ========================= */
 
-/*
-  EL LÍMITE ESTÁ DESACTIVADO TEMPORALMENTE.
+function getUsage(){
 
-  Más adelante podremos volver a poner:
-  const FREE_LIMIT = 5;
-*/
+  return Number(
+    localStorage.getItem(
+      "businessAI_usage"
+    ) || 0
+  );
+
+}
+
 
 function canUseAI(){
 
-  return true;
+  if(isPremium()){
+
+    return true;
+
+  }
+
+  return getUsage() < FREE_LIMIT;
 
 }
 
 
 function increaseUsage(){
 
-  /*
-    No contamos usos durante las pruebas.
-  */
+  if(isPremium()){
+
+    return;
+
+  }
+
+  const currentUsage =
+    getUsage();
+
+  const newUsage =
+    currentUsage + 1;
+
+  localStorage.setItem(
+    "businessAI_usage",
+    newUsage
+  );
 
   updateUsage();
 
 }
 
 
-function getUsage(){
-
-  return 0;
-
-}
-
-
 function updateUsage(){
 
-  document.getElementById("usageText").textContent =
-    "Pruebas ilimitadas";
+  if(isPremium()){
 
-  document.getElementById("progressBar").style.width =
-    "100%";
+    return;
+
+  }
+
+  const usage =
+    getUsage();
+
+  const remaining =
+    Math.max(
+      FREE_LIMIT - usage,
+      0
+    );
+
+
+  document.getElementById(
+    "usageText"
+  ).textContent =
+    remaining +
+    " / " +
+    FREE_LIMIT +
+    " disponibles";
+
+
+  const percentage =
+    (usage / FREE_LIMIT) * 100;
+
+
+  document.getElementById(
+    "progressBar"
+  ).style.width =
+    Math.min(
+      percentage,
+      100
+    ) + "%";
 
 }
 
@@ -788,9 +1092,13 @@ function updateUsage(){
 
 function hideAllPages(){
 
-  document.querySelectorAll(".page").forEach(page=>{
-    page.classList.remove("active");
-  });
+  document
+    .querySelectorAll(".page")
+    .forEach(function(page){
+
+      page.classList.remove("active");
+
+    });
 
 }
 
@@ -799,7 +1107,9 @@ function goHome(){
 
   hideAllPages();
 
-  document.getElementById("home").classList.add("active");
+  document
+    .getElementById("home")
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
@@ -813,7 +1123,9 @@ function openTool(tool){
 
   hideAllPages();
 
-  document.getElementById(tool).classList.add("active");
+  document
+    .getElementById(tool)
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
@@ -827,7 +1139,9 @@ function openPremium(){
 
   hideAllPages();
 
-  document.getElementById("premium").classList.add("active");
+  document
+    .getElementById("premium")
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
@@ -843,27 +1157,44 @@ function openPremium(){
 
 function getInstruction(tool){
 
-  const lang =
+  const language =
     document.getElementById("language").value;
 
-  let languageText = "Español";
+  let languageName =
+    "Español";
 
-  if(lang === "en") languageText = "English";
-  if(lang === "fr") languageText = "French";
-  if(lang === "de") languageText = "German";
+
+  if(language === "en"){
+
+    languageName =
+      "English";
+
+  }else if(language === "fr"){
+
+    languageName =
+      "French";
+
+  }else if(language === "de"){
+
+    languageName =
+      "German";
+
+  }
 
 
   const base =
-  "Responde en " + languageText +
-  ". Sé práctico, claro y útil. No inventes datos. ";
+    "Responde en " +
+    languageName +
+    ". Sé práctico, claro y útil. " +
+    "No inventes datos. ";
 
 
   if(tool === "assistant"){
 
     return base +
-    "Actúa como un experto en negocios online. " +
-    "Responde directamente a la pregunta del usuario " +
-    "y proporciona pasos concretos.";
+      "Actúa como un experto en negocios online. " +
+      "Responde directamente a la pregunta del usuario " +
+      "y proporciona pasos concretos.";
 
   }
 
@@ -871,10 +1202,10 @@ function getInstruction(tool){
   if(tool === "ideas"){
 
     return base +
-    "Actúa como experto en emprendimiento. " +
-    "Propón exactamente 3 ideas de negocio adecuadas " +
-    "a la situación del usuario. Para cada una explica " +
-    "qué es, cómo empezar y cómo conseguir los primeros clientes.";
+      "Actúa como experto en emprendimiento. " +
+      "Propón exactamente 3 ideas de negocio adecuadas " +
+      "a la situación del usuario. Para cada una explica " +
+      "qué es, cómo empezar y cómo conseguir los primeros clientes.";
 
   }
 
@@ -882,10 +1213,10 @@ function getInstruction(tool){
   if(tool === "social"){
 
     return base +
-    "Actúa como experto en TikTok e Instagram. " +
-    "Crea un contenido atractivo para promocionar el producto. " +
-    "Incluye hook inicial, guion, escenas, texto en pantalla " +
-    "y llamada a la acción.";
+      "Actúa como experto en TikTok e Instagram. " +
+      "Crea contenido atractivo para promocionar el producto. " +
+      "Incluye hook inicial, guion, escenas, texto en pantalla " +
+      "y llamada a la acción.";
 
   }
 
@@ -893,9 +1224,9 @@ function getInstruction(tool){
   if(tool === "ads"){
 
     return base +
-    "Actúa como experto en publicidad digital. " +
-    "Crea un anuncio persuasivo para el producto indicado. " +
-    "Incluye titular, texto principal, beneficios y llamada a la acción.";
+      "Actúa como experto en publicidad digital. " +
+      "Crea un anuncio persuasivo para el producto indicado. " +
+      "Incluye titular, texto principal, beneficios y llamada a la acción.";
 
   }
 
@@ -903,10 +1234,10 @@ function getInstruction(tool){
   if(tool === "prices"){
 
     return base +
-    "Actúa como experto en precios y rentabilidad. " +
-    "Calcula el precio recomendado, beneficio por unidad " +
-    "y margen aproximado cuando los datos lo permitan. " +
-    "Explica los cálculos de forma sencilla.";
+      "Actúa como experto en precios y rentabilidad. " +
+      "Calcula el precio recomendado, beneficio por unidad " +
+      "y margen aproximado cuando los datos lo permitan. " +
+      "Explica los cálculos de forma sencilla.";
 
   }
 
@@ -922,10 +1253,12 @@ function getInstruction(tool){
 
 async function runAI(tool){
 
+  /* COMPROBAR LÍMITE */
+
   if(!canUseAI()){
 
     alert(
-      "🆓 Has utilizado tus generaciones gratuitas.\n\n⭐ Pasa a Premium para seguir utilizando Business AI."
+      "🆓 Has utilizado tus 5 generaciones gratuitas.\n\n⭐ Pasa a Premium para seguir utilizando Business AI."
     );
 
     return;
@@ -934,25 +1267,35 @@ async function runAI(tool){
 
 
   const input =
-    document.getElementById(tool + "Input");
+    document.getElementById(
+      tool + "Input"
+    );
+
 
   const result =
-    document.getElementById(tool + "Result");
+    document.getElementById(
+      tool + "Result"
+    );
 
 
-  const text = input.value.trim();
+  const text =
+    input.value.trim();
 
 
   if(!text){
 
-    alert("Escribe algo primero.");
+    alert(
+      "Escribe algo primero."
+    );
 
     return;
 
   }
 
 
-  result.style.display = "block";
+  result.style.display =
+    "block";
+
 
   result.innerHTML =
     "<div class='loading'>🤖 Business AI está pensando...</div>";
@@ -964,30 +1307,40 @@ async function runAI(tool){
 
   try{
 
-    const response = await fetch(WORKER_URL,{
+    const response =
+      await fetch(
+        WORKER_URL,
+        {
 
-      method:"POST",
+          method:"POST",
 
-      headers:{
-        "Content-Type":"application/json"
-      },
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
 
-      body:JSON.stringify({
+          body:JSON.stringify({
 
-        message:instruction + "\n\nPregunta del usuario:\n" + text
+            message:
+              instruction +
+              "\n\nPregunta del usuario:\n" +
+              text
 
-      })
+          })
 
-    });
+        }
+      );
 
 
-    const data = await response.json();
+    const data =
+      await response.json();
 
 
     if(data.error){
 
       result.textContent =
-        "❌ Error: " + data.error;
+        "❌ Error: " +
+        data.error;
 
       return;
 
@@ -1004,7 +1357,11 @@ async function runAI(tool){
     if(typeof answer === "object"){
 
       answer =
-        JSON.stringify(answer,null,2);
+        JSON.stringify(
+          answer,
+          null,
+          2
+        );
 
     }
 
@@ -1017,8 +1374,11 @@ async function runAI(tool){
     }
 
 
-    result.textContent = answer;
+    result.textContent =
+      answer;
 
+
+    /* CONTAR USO */
 
     increaseUsage();
 
