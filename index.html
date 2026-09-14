@@ -40,8 +40,6 @@ body{
   min-height:100vh;
 }
 
-/* HEADER */
-
 header{
   height:72px;
   background:rgba(11,16,26,.88);
@@ -90,8 +88,6 @@ select{
   color:#93c5fd;
 }
 
-/* MAIN */
-
 main{
   max-width:1180px;
   margin:auto;
@@ -105,8 +101,6 @@ main{
 .page.active{
   display:block;
 }
-
-/* HERO */
 
 .hero{
   text-align:center;
@@ -146,8 +140,6 @@ main{
   line-height:1.7;
 }
 
-/* DASHBOARD */
-
 .dashboard{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -186,8 +178,6 @@ main{
   margin-top:4px;
 }
 
-/* USAGE */
-
 .usage{
   background:linear-gradient(145deg,#101827,#0c1320);
   padding:20px;
@@ -222,8 +212,6 @@ main{
   transition:.5s;
 }
 
-/* SECTION TITLE */
-
 .section-title{
   display:flex;
   align-items:end;
@@ -239,8 +227,6 @@ main{
   color:#64748b;
   font-size:13px;
 }
-
-/* TOOLS */
 
 .tools{
   display:grid;
@@ -340,8 +326,6 @@ main{
   margin-bottom:11px;
 }
 
-/* BIG PREMIUM */
-
 .premium-banner{
   margin-top:18px;
   padding:28px;
@@ -379,8 +363,6 @@ main{
 .premium-banner button{
   white-space:nowrap;
 }
-
-/* BUTTONS */
 
 button{
   font-family:inherit;
@@ -430,8 +412,6 @@ button.secondary:hover{
   border-color:#2563eb;
   background:#111827;
 }
-
-/* TOOL */
 
 .back{
   border:none;
@@ -488,8 +468,6 @@ textarea:focus{
   border-color:#2563eb;
   box-shadow:0 0 0 3px rgba(37,99,235,.08);
 }
-
-/* RESULT */
 
 .result{
   margin-top:25px;
@@ -605,10 +583,6 @@ textarea:focus{
   50%{opacity:1}
 }
 
-/* ==================================
-   PREMIUM PAGE - NUEVO DISEÑO
-================================== */
-
 .premium-box{
   background:
     radial-gradient(circle at 100% 0%,rgba(37,99,235,.20),transparent 32%),
@@ -654,8 +628,6 @@ textarea:focus{
   line-height:1.7;
   font-size:16px;
 }
-
-/* PREMIUM PRICE */
 
 .premium-offer{
   display:grid;
@@ -765,8 +737,6 @@ textarea:focus{
   line-height:1.5;
 }
 
-/* PREMIUM SECTION */
-
 .premium-section-title{
   text-align:center;
   margin:35px 0 17px;
@@ -823,8 +793,6 @@ textarea:focus{
   font-size:11px;
 }
 
-/* PREMIUM CTA */
-
 .premium-cta{
   margin-top:25px;
   padding:23px;
@@ -853,8 +821,6 @@ textarea:focus{
   min-width:190px;
   margin:0;
 }
-
-/* TRUST */
 
 .trust-row{
   display:grid;
@@ -886,8 +852,6 @@ textarea:focus{
   color:#64748b;
   font-size:10px;
 }
-
-/* FAQ */
 
 .faq{
   margin-top:30px;
@@ -944,8 +908,6 @@ textarea:focus{
   transform:rotate(45deg);
 }
 
-/* SAVED */
-
 .saved-box{
   margin-top:30px;
   padding:20px;
@@ -972,15 +934,11 @@ textarea:focus{
   border-color:#2563eb;
 }
 
-/* EMPTY */
-
 .empty{
   color:#64748b;
   font-size:13px;
   padding:10px 0;
 }
-
-/* TOAST */
 
 .toast{
   position:fixed;
@@ -1006,16 +964,12 @@ textarea:focus{
   transform:translateY(0);
 }
 
-/* FOOTER */
-
 footer{
   text-align:center;
   color:#475569;
   padding:50px 20px 30px;
   font-size:12px;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -1173,8 +1127,6 @@ Business <span>AI</span>
 
 <main>
 
-<!-- HOME -->
-
 <section id="home" class="page active">
 
 <div class="hero">
@@ -1193,8 +1145,6 @@ con herramientas de inteligencia artificial desde un solo lugar.
 </p>
 
 </div>
-
-<!-- DASHBOARD -->
 
 <div class="dashboard">
 
@@ -1392,138 +1342,60 @@ Ver Premium →
 
 </section>
 
-
-<!-- ASSISTANT -->
-
 <section id="assistant" class="page">
 <button class="back" onclick="goHome()">← Volver</button>
-
 <div class="tool-box">
-
 <h2 class="tool-title">🤖 Asistente Business AI</h2>
-
-<p class="tool-description">
-Pregunta lo que quieras sobre negocios, ventas, marketing o ideas.
-</p>
-
-<textarea id="assistantInput"
-placeholder="Ejemplo: Tengo 100 € y quiero empezar un negocio online. ¿Qué me recomiendas?"></textarea>
-
-<button class="primary" onclick="runAI('assistant')">
-✨ Generar respuesta
-</button>
-
+<p class="tool-description">Pregunta lo que quieras sobre negocios, ventas, marketing o ideas.</p>
+<textarea id="assistantInput" placeholder="Ejemplo: Tengo 100 € y quiero empezar un negocio online. ¿Qué me recomiendas?"></textarea>
+<button class="primary" onclick="runAI('assistant')">✨ Generar respuesta</button>
 <div id="assistantResult" class="result"></div>
-
 </div>
 </section>
-
-
-<!-- IDEAS -->
 
 <section id="ideas" class="page">
 <button class="back" onclick="goHome()">← Volver</button>
-
 <div class="tool-box">
-
 <h2 class="tool-title">💡 Ideas de negocio</h2>
-
-<p class="tool-description">
-Cuéntame tu situación y te propondré ideas realistas.
-</p>
-
-<textarea id="ideasInput"
-placeholder="Ejemplo: Tengo 50 €, sé bastante de fútbol y quiero ganar dinero por Internet."></textarea>
-
-<button class="primary" onclick="runAI('ideas')">
-💡 Generar ideas
-</button>
-
+<p class="tool-description">Cuéntame tu situación y te propondré ideas realistas.</p>
+<textarea id="ideasInput" placeholder="Ejemplo: Tengo 50 €, sé bastante de fútbol y quiero ganar dinero por Internet."></textarea>
+<button class="primary" onclick="runAI('ideas')">💡 Generar ideas</button>
 <div id="ideasResult" class="result"></div>
-
 </div>
 </section>
-
-
-<!-- SOCIAL -->
 
 <section id="social" class="page">
 <button class="back" onclick="goHome()">← Volver</button>
-
 <div class="tool-box">
-
 <h2 class="tool-title">📱 TikTok / Instagram</h2>
-
-<p class="tool-description">
-Crea contenido atractivo para conseguir visitas y clientes.
-</p>
-
-<textarea id="socialInput"
-placeholder="Ejemplo: Quiero promocionar unas zapatillas de fútbol baratas. Hazme un TikTok que pueda hacerse viral."></textarea>
-
-<button class="primary" onclick="runAI('social')">
-📱 Crear contenido
-</button>
-
+<p class="tool-description">Crea contenido atractivo para conseguir visitas y clientes.</p>
+<textarea id="socialInput" placeholder="Ejemplo: Quiero promocionar unas zapatillas de fútbol baratas. Hazme un TikTok que pueda hacerse viral."></textarea>
+<button class="primary" onclick="runAI('social')">📱 Crear contenido</button>
 <div id="socialResult" class="result"></div>
-
 </div>
 </section>
-
-
-<!-- ADS -->
 
 <section id="ads" class="page">
 <button class="back" onclick="goHome()">← Volver</button>
-
 <div class="tool-box">
-
 <h2 class="tool-title">📢 Generador de anuncios</h2>
-
-<p class="tool-description">
-Crea anuncios diseñados para llamar la atención y vender.
-</p>
-
-<textarea id="adsInput"
-placeholder="Ejemplo: Quiero vender un masajeador de espalda por 29,99 €. Crea un anuncio."></textarea>
-
-<button class="primary" onclick="runAI('ads')">
-📢 Crear anuncio
-</button>
-
+<p class="tool-description">Crea anuncios diseñados para llamar la atención y vender.</p>
+<textarea id="adsInput" placeholder="Ejemplo: Quiero vender un masajeador de espalda por 29,99 €. Crea un anuncio."></textarea>
+<button class="primary" onclick="runAI('ads')">📢 Crear anuncio</button>
 <div id="adsResult" class="result"></div>
-
 </div>
 </section>
-
-
-<!-- PRICES -->
 
 <section id="prices" class="page">
 <button class="back" onclick="goHome()">← Volver</button>
-
 <div class="tool-box">
-
 <h2 class="tool-title">💰 Precios y beneficios</h2>
-
-<p class="tool-description">
-Escribe el coste de tu producto y cómo quieres venderlo.
-</p>
-
-<textarea id="pricesInput"
-placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."></textarea>
-
-<button class="primary" onclick="runAI('prices')">
-💰 Calcular
-</button>
-
+<p class="tool-description">Escribe el coste de tu producto y cómo quieres venderlo.</p>
+<textarea id="pricesInput" placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."></textarea>
+<button class="primary" onclick="runAI('prices')">💰 Calcular</button>
 <div id="pricesResult" class="result"></div>
-
 </div>
 </section>
-
-
-<!-- PREMIUM TOOLS -->
 
 <section id="builder" class="page">
 <button class="back" onclick="goHome()">← Volver</button>
@@ -1645,9 +1517,6 @@ placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."
 </div>
 </section>
 
-
-<!-- PREMIUM -->
-
 <section id="premium" class="page">
 
 <button class="back" onclick="goHome()">← Volver</button>
@@ -1670,9 +1539,6 @@ crear contenido, conseguir clientes y hacer crecer tu negocio.
 </p>
 
 </div>
-
-
-<!-- OFERTA -->
 
 <div class="premium-offer">
 
@@ -1726,7 +1592,6 @@ crear contenido, conseguir clientes y hacer crecer tu negocio.
 
 </div>
 
-
 <div class="price-card">
 
 <div class="price">
@@ -1737,21 +1602,24 @@ crear contenido, conseguir clientes y hacer crecer tu negocio.
 Cancela cuando quieras
 </div>
 
-<button class="primary" onclick="activateDemoPremium()">
-⭐ Probar Premium
+<button class="primary" onclick="buyPremium()">
+💳 Comprar Premium
 </button>
 
 <div class="demo-note">
-Modo DEMO durante las pruebas.
-El pago real se añadirá posteriormente.
+Pago seguro mediante Stripe · 4,99 €/mes
+</div>
+
+<button
+  class="secondary"
+  style="width:100%;margin-top:10px;"
+  onclick="activateDemoPremium()">
+🧪 Probar DEMO
+</button>
+
 </div>
 
 </div>
-
-</div>
-
-
-<!-- HERRAMIENTAS -->
 
 <div class="premium-section-title">
 
@@ -1837,9 +1705,6 @@ El pago real se añadirá posteriormente.
 
 </div>
 
-
-<!-- CTA -->
-
 <div class="premium-cta">
 
 <div class="premium-cta-text">
@@ -1847,19 +1712,16 @@ El pago real se añadirá posteriormente.
 <h3>🔥 ¿Listo para empezar?</h3>
 
 <p>
-Prueba todas las funciones Premium y descubre lo que puede hacer Business AI.
+Desbloquea todas las herramientas Premium por solo 4,99 €/mes.
 </p>
 
 </div>
 
-<button class="primary" onclick="activateDemoPremium()">
-🚀 Activar Premium
+<button class="primary" onclick="buyPremium()">
+💳 Comprar Premium
 </button>
 
 </div>
-
-
-<!-- CONFIANZA -->
 
 <div class="trust-row">
 
@@ -1887,21 +1749,17 @@ Prueba todas las funciones Premium y descubre lo que puede hacer Business AI.
 
 <div class="trust-icon">🔒</div>
 
-<strong>Sin complicaciones</strong>
+<strong>Pago seguro</strong>
 
-<span>Todo desde una sola plataforma</span>
-
-</div>
+<span>Procesado mediante Stripe</span>
 
 </div>
 
-
-<!-- FAQ -->
+</div>
 
 <div class="faq">
 
 <h3>❓ Preguntas frecuentes</h3>
-
 
 <div class="faq-item">
 
@@ -1918,6 +1776,33 @@ y copiar tus resultados.
 
 </div>
 
+<div class="faq-item">
+
+<button class="faq-question" onclick="toggleFAQ(this)">
+<span>¿Cuánto cuesta Premium?</span>
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Business AI Premium cuesta 4,99 € al mes.
+La suscripción es recurrente y puedes cancelarla cuando quieras.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" onclick="toggleFAQ(this)">
+<span>¿El pago es seguro?</span>
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+El pago se procesa mediante Stripe, una plataforma especializada
+en pagos online. Business AI no guarda los datos de tu tarjeta.
+</div>
+
+</div>
 
 <div class="faq-item">
 
@@ -1927,12 +1812,11 @@ y copiar tus resultados.
 </button>
 
 <div class="faq-answer">
-Sí. Durante esta fase de desarrollo puedes activar el
-modo DEMO para probar las funciones Premium.
+Sí. Durante el desarrollo puedes utilizar el modo DEMO
+para probar las funciones Premium.
 </div>
 
 </div>
-
 
 <div class="faq-item">
 
@@ -1942,28 +1826,12 @@ modo DEMO para probar las funciones Premium.
 </button>
 
 <div class="faq-answer">
-Sí. Business AI utiliza inteligencia artificial para
-crear estrategias, ideas, contenido y análisis adaptados
+Sí. Business AI utiliza inteligencia artificial para crear
+estrategias, ideas, contenido y análisis adaptados
 a la información que introduces.
 </div>
 
 </div>
-
-
-<div class="faq-item">
-
-<button class="faq-question" onclick="toggleFAQ(this)">
-<span>¿Cuánto cuesta Premium?</span>
-<span>+</span>
-</button>
-
-<div class="faq-answer">
-El precio mostrado actualmente es de 4,99 € al mes.
-El sistema de pago real todavía no está conectado.
-</div>
-
-</div>
-
 
 <div class="faq-item">
 
@@ -1980,9 +1848,6 @@ en el navegador y copiarlos fácilmente.
 </div>
 
 </div>
-
-
-<!-- SAVED -->
 
 <div class="saved-box">
 
@@ -2010,11 +1875,14 @@ Todavía no tienes resultados guardados.
 
 <div class="toast" id="toast"></div>
 
-
 <script>
 
 const WORKER_URL =
 "https://buusinessai.khalilidrissibachiri.workers.dev/";
+
+/* PAYMENT LINK REAL DE STRIPE */
+const STRIPE_PAYMENT_LINK =
+"https://buy.stripe.com/bJe3cx4B0h2r3HLdDZdjO00";
 
 const FREE_LIMIT = 5;
 
@@ -2030,6 +1898,26 @@ const PREMIUM_TOOLS = [
   "clients",
   "growth"
 ];
+
+
+/* =========================
+PAGO PREMIUM
+========================= */
+
+function buyPremium(){
+
+  showToast(
+    "💳 Abriendo pago seguro..."
+  );
+
+  setTimeout(() => {
+
+    window.location.href =
+      STRIPE_PAYMENT_LINK;
+
+  },300);
+
+}
 
 
 /* =========================
