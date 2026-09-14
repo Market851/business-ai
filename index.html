@@ -569,7 +569,7 @@ Calcula precios de venta, beneficios y márgenes.
 </div>
 
 
-<!-- NUEVO BUSINESS BUILDER -->
+<!-- BUSINESS BUILDER -->
 
 <div class="card premium-card" onclick="openTool('builder')">
 
@@ -585,6 +585,27 @@ Business Builder
 
 <p>
 Construye tu negocio paso a paso con un plan completo creado por IA.
+</p>
+
+</div>
+
+
+<!-- SOCIAL MEDIA PRO -->
+
+<div class="card premium-card" onclick="openTool('socialpro')">
+
+<span class="badge">
+⭐ PREMIUM
+</span>
+
+<div class="icon">📱</div>
+
+<h3>
+Social Media Pro
+</h3>
+
+<p>
+Crea una estrategia completa de contenido para TikTok e Instagram durante 30 días.
 </p>
 
 </div>
@@ -721,6 +742,47 @@ placeholder="Ejemplo: Quiero promocionar unas zapatillas de fútbol baratas. Haz
 
 
 <!-- =========================
+     SOCIAL MEDIA PRO
+========================= -->
+
+<section id="socialpro" class="page">
+
+<button class="back" onclick="goHome()">
+← Volver
+</button>
+
+<div class="tool-box">
+
+<span class="badge">
+⭐ PREMIUM
+</span>
+
+<h2 class="tool-title">
+📱 Social Media Pro
+</h2>
+
+<p class="tool-description">
+Crea una estrategia completa de contenido para TikTok e Instagram,
+pensada para conseguir visitas, seguidores y clientes.
+</p>
+
+<textarea
+id="socialproInput"
+placeholder="Ejemplo: Tengo un negocio de edición de vídeos para restaurantes. Quiero conseguir clientes usando TikTok e Instagram y no tengo presupuesto para publicidad."
+></textarea>
+
+<button class="primary" onclick="runAI('socialpro')">
+🚀 Crear estrategia
+</button>
+
+<div id="socialproResult" class="result"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
      ADS
 ========================= -->
 
@@ -793,7 +855,7 @@ placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."
 
 
 <!-- =========================
-     NUEVO BUSINESS BUILDER
+     BUSINESS BUILDER
 ========================= -->
 
 <section id="builder" class="page">
@@ -1272,6 +1334,51 @@ function getInstruction(tool){
   }
 
 
+  /* =========================
+     SOCIAL MEDIA PRO
+  ========================= */
+
+  if(tool === "socialpro"){
+
+    return base +
+      "Actúa como un estratega profesional de TikTok e Instagram. " +
+      "El usuario está construyendo un negocio y quiere utilizar contenido " +
+      "orgánico para conseguir atención, seguidores y clientes. " +
+      "Analiza el negocio, producto, servicio, público y recursos que indique. " +
+      "No inventes datos importantes. Si falta información, haz una suposición " +
+      "razonable y aclárala.\n\n" +
+
+      "Crea una estrategia completa dividida EXACTAMENTE en estas 8 secciones:\n\n" +
+
+      "1. 🎯 POSICIONAMIENTO\n" +
+      "Explica cómo debería presentarse el negocio en redes y qué mensaje debería transmitir.\n\n" +
+
+      "2. 🎣 10 HOOKS\n" +
+      "Crea 10 frases iniciales potentes para captar la atención durante los primeros segundos.\n\n" +
+
+      "3. 🎬 10 IDEAS DE VÍDEOS\n" +
+      "Crea 10 ideas concretas de TikTok/Reels. Explica brevemente qué ocurre en cada vídeo.\n\n" +
+
+      "4. 📝 3 GUIONES COMPLETOS\n" +
+      "Escribe 3 guiones completos listos para grabar, incluyendo hook, desarrollo, texto en pantalla y CTA.\n\n" +
+
+      "5. 📱 CAPTIONS Y HASHTAGS\n" +
+      "Crea 5 captions diferentes y grupos de hashtags relevantes. Evita hashtags genéricos sin relación con el negocio.\n\n" +
+
+      "6. 📅 CALENDARIO DE 30 DÍAS\n" +
+      "Crea un calendario práctico de publicaciones para 30 días, indicando qué publicar cada día.\n\n" +
+
+      "7. 💬 CONVERTIR VISITAS EN CLIENTES\n" +
+      "Explica cómo responder comentarios y mensajes privados y cómo llevar a una persona interesada hacia una compra o contacto.\n\n" +
+
+      "8. 🚀 PLAN DE CRECIMIENTO\n" +
+      "Explica qué debería medir, qué contenido repetir y qué mejorar durante los primeros 30 días.\n\n" +
+
+      "Sé muy práctico. Da ejemplos concretos y evita consejos genéricos como 'publica contenido de calidad' sin explicar exactamente qué hacer.";
+
+  }
+
+
   if(tool === "ads"){
 
     return base +
@@ -1357,10 +1464,13 @@ async function runAI(tool){
 
   /* BUSINESS BUILDER ES PREMIUM */
 
-  if(tool === "builder" && !isPremium()){
+  if(
+    (tool === "builder" || tool === "socialpro")
+    && !isPremium()
+  ){
 
     alert(
-      "⭐ Business Builder es una función Premium.\n\nActiva Premium para utilizar esta herramienta."
+      "⭐ Esta herramienta es Premium.\n\nActiva Premium para utilizarla."
     );
 
     openPremium();
