@@ -6,6 +6,7 @@
 <title>Business AI</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -14,14 +15,18 @@
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f7fb;
-  color:#111827;
+  background:#080b12;
+  color:#f9fafb;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   height:70px;
-  background:white;
-  border-bottom:1px solid #e5e7eb;
+  background:#0d111a;
+  border-bottom:1px solid #1f2937;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -34,11 +39,11 @@ header{
 .logo{
   font-size:23px;
   font-weight:800;
-  color:#111827;
+  color:#ffffff;
 }
 
 .logo span{
-  color:#2563eb;
+  color:#3b82f6;
 }
 
 .header-right{
@@ -49,9 +54,11 @@ header{
 
 select{
   padding:9px 12px;
-  border:1px solid #d1d5db;
+  border:1px solid #374151;
   border-radius:9px;
-  background:white;
+  background:#111827;
+  color:#ffffff;
+  outline:none;
 }
 
 .plan{
@@ -59,9 +66,13 @@ select{
   border-radius:20px;
   font-size:13px;
   font-weight:bold;
-  background:#eef2ff;
-  color:#4338ca;
+  background:#172554;
+  color:#93c5fd;
 }
+
+/* =========================
+   MAIN
+========================= */
 
 main{
   max-width:1100px;
@@ -77,26 +88,31 @@ main{
 .hero h1{
   font-size:45px;
   margin-bottom:15px;
+  color:#ffffff;
 }
 
 .hero h1 span{
-  color:#2563eb;
+  color:#3b82f6;
 }
 
 .hero p{
-  color:#6b7280;
+  color:#9ca3af;
   font-size:18px;
   max-width:650px;
   margin:auto;
   line-height:1.6;
 }
 
+/* =========================
+   USAGE
+========================= */
+
 .usage{
-  background:white;
+  background:#111827;
   padding:18px;
   border-radius:15px;
   margin-bottom:25px;
-  border:1px solid #e5e7eb;
+  border:1px solid #1f2937;
 }
 
 .usage-top{
@@ -104,11 +120,12 @@ main{
   justify-content:space-between;
   margin-bottom:10px;
   font-weight:bold;
+  color:#f9fafb;
 }
 
 .progress{
   height:9px;
-  background:#e5e7eb;
+  background:#1f2937;
   border-radius:10px;
   overflow:hidden;
 }
@@ -116,9 +133,13 @@ main{
 .progress-bar{
   height:100%;
   width:0%;
-  background:#2563eb;
+  background:#3b82f6;
   transition:.3s;
 }
+
+/* =========================
+   CARDS
+========================= */
 
 .tools{
   display:grid;
@@ -127,8 +148,8 @@ main{
 }
 
 .card{
-  background:white;
-  border:1px solid #e5e7eb;
+  background:#111827;
+  border:1px solid #1f2937;
   border-radius:18px;
   padding:25px;
   cursor:pointer;
@@ -137,7 +158,8 @@ main{
 
 .card:hover{
   transform:translateY(-4px);
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  border-color:#2563eb;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 .card .icon{
@@ -148,21 +170,31 @@ main{
 .card h3{
   font-size:20px;
   margin-bottom:8px;
+  color:#ffffff;
 }
 
 .card p{
-  color:#6b7280;
+  color:#9ca3af;
   line-height:1.5;
 }
 
+/* =========================
+   PREMIUM CARD
+========================= */
+
 .premium-card{
   grid-column:1/-1;
-  background:linear-gradient(135deg,#111827,#1e3a8a);
+  background:linear-gradient(135deg,#111827,#172554);
   color:white;
+  border:1px solid #1d4ed8;
+}
+
+.premium-card:hover{
+  border-color:#3b82f6;
 }
 
 .premium-card p{
-  color:#dbeafe;
+  color:#bfdbfe;
 }
 
 .badge{
@@ -176,6 +208,10 @@ main{
   margin-bottom:12px;
 }
 
+/* =========================
+   PAGES
+========================= */
+
 .page{
   display:none;
 }
@@ -187,7 +223,7 @@ main{
 .back{
   border:none;
   background:none;
-  color:#2563eb;
+  color:#60a5fa;
   font-size:15px;
   cursor:pointer;
   margin-bottom:25px;
@@ -195,8 +231,8 @@ main{
 }
 
 .tool-box{
-  background:white;
-  border:1px solid #e5e7eb;
+  background:#111827;
+  border:1px solid #1f2937;
   border-radius:20px;
   padding:30px;
   max-width:800px;
@@ -206,28 +242,43 @@ main{
 .tool-title{
   font-size:30px;
   margin-bottom:10px;
+  color:#ffffff;
 }
 
 .tool-description{
-  color:#6b7280;
+  color:#9ca3af;
   margin-bottom:25px;
 }
+
+/* =========================
+   TEXTAREA
+========================= */
 
 textarea{
   width:100%;
   min-height:150px;
   padding:15px;
-  border:1px solid #d1d5db;
+  border:1px solid #374151;
   border-radius:12px;
   resize:vertical;
   font-family:Arial;
   font-size:15px;
   outline:none;
+  background:#0b0f17;
+  color:#ffffff;
+}
+
+textarea::placeholder{
+  color:#6b7280;
 }
 
 textarea:focus{
   border-color:#2563eb;
 }
+
+/* =========================
+   BUTTON
+========================= */
 
 button.primary{
   width:100%;
@@ -246,25 +297,34 @@ button.primary:hover{
   background:#1d4ed8;
 }
 
+/* =========================
+   RESULTS
+========================= */
+
 .result{
   margin-top:25px;
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
+  background:#0b0f17;
+  border:1px solid #1f2937;
   border-radius:14px;
   padding:20px;
   line-height:1.6;
   white-space:pre-wrap;
   display:none;
+  color:#e5e7eb;
 }
 
 .loading{
   text-align:center;
-  color:#6b7280;
+  color:#9ca3af;
 }
 
+/* =========================
+   PREMIUM PAGE
+========================= */
+
 .premium-box{
-  background:white;
-  border:1px solid #e5e7eb;
+  background:#111827;
+  border:1px solid #1f2937;
   border-radius:20px;
   padding:30px;
   max-width:850px;
@@ -274,10 +334,11 @@ button.primary:hover{
 .premium-box h2{
   font-size:32px;
   margin-bottom:10px;
+  color:#ffffff;
 }
 
 .premium-box > p{
-  color:#6b7280;
+  color:#9ca3af;
   margin-bottom:25px;
 }
 
@@ -290,27 +351,38 @@ button.primary:hover{
 
 .feature{
   padding:18px;
-  background:#f8fafc;
+  background:#0b0f17;
+  border:1px solid #1f2937;
   border-radius:12px;
+  color:#e5e7eb;
 }
 
 .price{
   font-size:34px;
   font-weight:bold;
   margin:20px 0;
+  color:#ffffff;
 }
 
 .price small{
   font-size:15px;
-  color:#6b7280;
+  color:#9ca3af;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   text-align:center;
-  color:#9ca3af;
+  color:#6b7280;
   padding:40px 20px;
   font-size:13px;
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
@@ -343,6 +415,7 @@ footer{
   }
 
 }
+
 </style>
 </head>
 
@@ -373,7 +446,9 @@ Business <span>AI</span>
 
 <main>
 
-<!-- HOME -->
+<!-- =========================
+     HOME
+========================= -->
 
 <section id="home" class="page active">
 
@@ -390,6 +465,8 @@ contenido, anuncios y estrategias para tu negocio.
 
 </div>
 
+
+<!-- USAGE -->
 
 <div class="usage" id="usageBox">
 
@@ -411,6 +488,8 @@ contenido, anuncios y estrategias para tu negocio.
 
 </div>
 
+
+<!-- TOOLS -->
 
 <div class="tools">
 
@@ -512,7 +591,9 @@ competencia, marketing y beneficios.
 </section>
 
 
-<!-- ASSISTANT -->
+<!-- =========================
+     ASSISTANT
+========================= -->
 
 <section id="assistant" class="page">
 
@@ -546,7 +627,9 @@ placeholder="Ejemplo: Tengo 100 € y quiero empezar un negocio online. ¿Qué m
 </section>
 
 
-<!-- IDEAS -->
+<!-- =========================
+     IDEAS
+========================= -->
 
 <section id="ideas" class="page">
 
@@ -580,7 +663,9 @@ placeholder="Ejemplo: Tengo 50 €, vivo en un pueblo pequeño, sé bastante de 
 </section>
 
 
-<!-- SOCIAL -->
+<!-- =========================
+     SOCIAL
+========================= -->
 
 <section id="social" class="page">
 
@@ -614,7 +699,9 @@ placeholder="Ejemplo: Quiero promocionar unas zapatillas de fútbol baratas. Haz
 </section>
 
 
-<!-- ADS -->
+<!-- =========================
+     ADS
+========================= -->
 
 <section id="ads" class="page">
 
@@ -648,7 +735,9 @@ placeholder="Ejemplo: Quiero vender un masajeador de espalda por 29,99 €. Crea
 </section>
 
 
-<!-- PRICES -->
+<!-- =========================
+     PRICES
+========================= -->
 
 <section id="prices" class="page">
 
@@ -682,7 +771,9 @@ placeholder="Ejemplo: Compro un producto por 10 € y quiero venderlo al doble."
 </section>
 
 
-<!-- PREMIUM -->
+<!-- =========================
+     PREMIUM
+========================= -->
 
 <section id="premium" class="page">
 
@@ -707,54 +798,45 @@ Lleva tus ideas de negocio al siguiente nivel con herramientas más avanzadas.
 
 <div class="features">
 
-
 <div class="feature">
 🚀 <strong>Planes de negocio</strong><br>
 Crea un plan completo paso a paso.
 </div>
-
 
 <div class="feature">
 📊 <strong>Análisis avanzados</strong><br>
 Analiza fortalezas, debilidades y oportunidades.
 </div>
 
-
 <div class="feature">
 🎯 <strong>Estrategias de clientes</strong><br>
 Descubre cómo conseguir tus primeros clientes.
 </div>
-
 
 <div class="feature">
 📱 <strong>Contenido avanzado</strong><br>
 Calendarios, hooks y guiones para redes.
 </div>
 
-
 <div class="feature">
 📢 <strong>Campañas completas</strong><br>
 Crea campañas publicitarias completas.
 </div>
-
 
 <div class="feature">
 💰 <strong>Análisis de beneficios</strong><br>
 Analiza precios, costes y márgenes.
 </div>
 
-
 <div class="feature">
 🧠 <strong>Ideas personalizadas</strong><br>
 Ideas según presupuesto, habilidades y objetivos.
 </div>
 
-
 <div class="feature">
 💾 <strong>Guardar resultados</strong><br>
 Guarda tus estrategias y resultados.
 </div>
-
 
 </div>
 
@@ -906,7 +988,7 @@ function activateDemoPremium(){
 
 
 /* =========================
-   USO
+   USO GRATUITO
 ========================= */
 
 const FREE_LIMIT = 5;
@@ -926,9 +1008,7 @@ function getUsage(){
 function canUseAI(){
 
   if(isPremium()){
-
     return true;
-
   }
 
   return getUsage() < FREE_LIMIT;
@@ -939,13 +1019,16 @@ function canUseAI(){
 function increaseUsage(){
 
   if(isPremium()){
-
     return;
-
   }
 
-  const usage =
-    getUsage() + 1;
+  let usage = getUsage();
+
+  usage++;
+
+  if(usage > FREE_LIMIT){
+    usage = FREE_LIMIT;
+  }
 
   localStorage.setItem(
     "businessAI_usage",
@@ -959,14 +1042,34 @@ function increaseUsage(){
 
 function updateUsage(){
 
+  const usageBox =
+    document.getElementById("usageBox");
+
+  const usageText =
+    document.getElementById("usageText");
+
+  const progressBar =
+    document.getElementById("progressBar");
+
+  if(!usageBox || !usageText || !progressBar){
+    return;
+  }
+
   if(isPremium()){
+
+    usageBox.style.display = "none";
 
     return;
 
   }
 
+  usageBox.style.display = "block";
+
   const usage =
-    getUsage();
+    Math.min(
+      getUsage(),
+      FREE_LIMIT
+    );
 
   const remaining =
     Math.max(
@@ -974,21 +1077,15 @@ function updateUsage(){
       0
     );
 
-  document.getElementById(
-    "usageText"
-  ).textContent =
+  usageText.textContent =
     remaining +
     " / " +
     FREE_LIMIT +
     " disponibles";
 
-  document.getElementById(
-    "progressBar"
-  ).style.width =
-    Math.min(
-      (usage / FREE_LIMIT) * 100,
-      100
-    ) + "%";
+  progressBar.style.width =
+    ((usage / FREE_LIMIT) * 100) +
+    "%";
 
 }
 
@@ -999,13 +1096,9 @@ function updateUsage(){
 
 function hideAllPages(){
 
-  document.querySelectorAll(
-    ".page"
-  ).forEach(page=>{
+  document.querySelectorAll(".page").forEach(page => {
 
-    page.classList.remove(
-      "active"
-    );
+    page.classList.remove("active");
 
   });
 
@@ -1016,11 +1109,8 @@ function goHome(){
 
   hideAllPages();
 
-  document.getElementById(
-    "home"
-  ).classList.add(
-    "active"
-  );
+  document.getElementById("home")
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
@@ -1034,11 +1124,8 @@ function openTool(tool){
 
   hideAllPages();
 
-  document.getElementById(
-    tool
-  ).classList.add(
-    "active"
-  );
+  document.getElementById(tool)
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
@@ -1052,11 +1139,8 @@ function openPremium(){
 
   hideAllPages();
 
-  document.getElementById(
-    "premium"
-  ).classList.add(
-    "active"
-  );
+  document.getElementById("premium")
+    .classList.add("active");
 
   window.scrollTo({
     top:0,
@@ -1073,9 +1157,7 @@ function openPremium(){
 function getInstruction(tool){
 
   const lang =
-    document.getElementById(
-      "language"
-    ).value;
+    document.getElementById("language").value;
 
   let languageText =
     "Español";
@@ -1163,7 +1245,7 @@ async function runAI(tool){
   if(!canUseAI()){
 
     alert(
-      "🆓 Has utilizado tus generaciones gratuitas.\n\n⭐ Pasa a Premium para seguir utilizando Business AI."
+      "🆓 Has utilizado tus 5 generaciones gratuitas.\n\n⭐ Pasa a Premium para seguir utilizando Business AI."
     );
 
     return;
@@ -1221,10 +1303,12 @@ async function runAI(tool){
           },
 
           body:JSON.stringify({
+
             message:
               instruction +
               "\n\nPregunta del usuario:\n" +
               text
+
           })
 
         }
@@ -1276,6 +1360,8 @@ async function runAI(tool){
     result.textContent =
       answer;
 
+
+    /* SOLO CUENTA SI LA IA RESPONDE */
 
     increaseUsage();
 
